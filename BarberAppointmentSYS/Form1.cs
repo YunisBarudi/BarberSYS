@@ -10,11 +10,51 @@ using System.Windows.Forms;
 
 namespace BarberAppointmentSYS
 {
-    public partial class Form1 : Form
+    public partial class frmMenu : Form
     {
-        public Form1()
+        public frmMenu()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            mnuStrip.BringToFront();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMain2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setServiceTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void yearlyRevenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
