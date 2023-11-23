@@ -69,8 +69,9 @@
             this.txtServiceType.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServiceType.Location = new System.Drawing.Point(408, 101);
+            this.txtServiceType.MaxLength = 2;
             this.txtServiceType.Name = "txtServiceType";
-            this.txtServiceType.Size = new System.Drawing.Size(102, 49);
+            this.txtServiceType.Size = new System.Drawing.Size(87, 49);
             this.txtServiceType.TabIndex = 2;
             this.txtServiceType.TextChanged += new System.EventHandler(this.txtServiceType_TextChanged);
             // 
@@ -95,6 +96,7 @@
             // 
             this.txtDescriptionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescriptionType.Location = new System.Drawing.Point(408, 223);
+            this.txtDescriptionType.MaxLength = 50;
             this.txtDescriptionType.Name = "txtDescriptionType";
             this.txtDescriptionType.Size = new System.Drawing.Size(473, 145);
             this.txtDescriptionType.TabIndex = 5;

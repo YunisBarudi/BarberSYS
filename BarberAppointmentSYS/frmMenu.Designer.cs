@@ -140,6 +140,7 @@
             this.mnuAddService.Name = "mnuAddService";
             this.mnuAddService.Size = new System.Drawing.Size(282, 30);
             this.mnuAddService.Text = "Add Service";
+            this.mnuAddService.Click += new System.EventHandler(this.mnuAddService_Click);
             // 
             // mnuChangeService
             // 

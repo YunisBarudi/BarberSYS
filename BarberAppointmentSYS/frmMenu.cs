@@ -59,23 +59,23 @@ namespace BarberAppointmentSYS
 
         private void mnuSetServiceType_Click(object sender, EventArgs e)
         {
-            try
-            {
-                frmSetServiceType newForm = new frmSetServiceType();
-                this.Hide();
-                newForm.ShowDialog();
-            }
-            catch (Exception ex) {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { 
-                this.Close();
-            }
+                 
+                 frmSetServiceType newForm = new frmSetServiceType(this);
+                 this.Hide();
+                 newForm.Show();
+            
         }
 
         private void mnuDiscontinueBarber_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mnuAddService_Click(object sender, EventArgs e)
+        {
+            frmAddService newForm = new frmAddService();
+            this.Hide();
+            newForm.Show();
         }
     }
 }
