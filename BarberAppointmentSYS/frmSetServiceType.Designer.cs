@@ -30,27 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetServiceType));
-            this.imgSetType = new System.Windows.Forms.PictureBox();
             this.lblServiceType = new System.Windows.Forms.Label();
             this.txtServiceType = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescriptionType = new System.Windows.Forms.RichTextBox();
             this.btnSetServiceType = new System.Windows.Forms.Button();
+            this.imgSetType = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgSetType)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imgSetType
-            // 
-            this.imgSetType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgSetType.BackgroundImage")));
-            this.imgSetType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgSetType.Image = global::BarberAppointmentSYS.Properties.Resources.backlogo;
-            this.imgSetType.Location = new System.Drawing.Point(0, 0);
-            this.imgSetType.Name = "imgSetType";
-            this.imgSetType.Size = new System.Drawing.Size(1067, 554);
-            this.imgSetType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgSetType.TabIndex = 0;
-            this.imgSetType.TabStop = false;
             // 
             // lblServiceType
             // 
@@ -115,11 +104,35 @@
             this.btnSetServiceType.UseVisualStyleBackColor = true;
             this.btnSetServiceType.Click += new System.EventHandler(this.btnSetServiceType_Click);
             // 
+            // imgSetType
+            // 
+            this.imgSetType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgSetType.BackgroundImage")));
+            this.imgSetType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgSetType.Image = global::BarberAppointmentSYS.Properties.Resources.backlogo;
+            this.imgSetType.Location = new System.Drawing.Point(0, 0);
+            this.imgSetType.Name = "imgSetType";
+            this.imgSetType.Size = new System.Drawing.Size(1067, 554);
+            this.imgSetType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgSetType.TabIndex = 0;
+            this.imgSetType.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(19, 457);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 53);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmSetServiceType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSetServiceType);
             this.Controls.Add(this.txtDescriptionType);
             this.Controls.Add(this.lblDescription);
@@ -143,5 +156,6 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.RichTextBox txtDescriptionType;
         private System.Windows.Forms.Button btnSetServiceType;
+        private System.Windows.Forms.Button button1;
     }
 }

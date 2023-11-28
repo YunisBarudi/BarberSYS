@@ -53,7 +53,6 @@ namespace BarberAppointmentSYS
                     DialogResult dialogResult =  MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        
                         this.Close();
                         parent.Visible = true;
                     }
@@ -80,6 +79,13 @@ namespace BarberAppointmentSYS
 
         private void txtDescriptionType_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
 
         }
     }

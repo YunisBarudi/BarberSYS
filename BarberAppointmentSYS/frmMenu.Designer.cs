@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
-            this.imgMainPicture = new System.Windows.Forms.PictureBox();
             this.lblMain1 = new System.Windows.Forms.Label();
             this.lblMain2 = new System.Windows.Forms.Label();
+            this.imgMainPicture = new System.Windows.Forms.PictureBox();
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuServices = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSetServiceType = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,22 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgMainPicture)).BeginInit();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // imgMainPicture
-            // 
-            this.imgMainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgMainPicture.BackColor = System.Drawing.Color.White;
-            this.imgMainPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgMainPicture.BackgroundImage")));
-            this.imgMainPicture.Image = ((System.Drawing.Image)(resources.GetObject("imgMainPicture.Image")));
-            this.imgMainPicture.ImageLocation = "";
-            this.imgMainPicture.Location = new System.Drawing.Point(-1, 33);
-            this.imgMainPicture.Margin = new System.Windows.Forms.Padding(4);
-            this.imgMainPicture.Name = "imgMainPicture";
-            this.imgMainPicture.Size = new System.Drawing.Size(1072, 577);
-            this.imgMainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.imgMainPicture.TabIndex = 0;
-            this.imgMainPicture.TabStop = false;
-            this.imgMainPicture.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblMain1
             // 
@@ -99,6 +83,22 @@
             this.lblMain2.Text = "System";
             this.lblMain2.Click += new System.EventHandler(this.lblMain2_Click);
             // 
+            // imgMainPicture
+            // 
+            this.imgMainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgMainPicture.BackColor = System.Drawing.Color.White;
+            this.imgMainPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgMainPicture.BackgroundImage")));
+            this.imgMainPicture.Image = ((System.Drawing.Image)(resources.GetObject("imgMainPicture.Image")));
+            this.imgMainPicture.ImageLocation = "";
+            this.imgMainPicture.Location = new System.Drawing.Point(-1, 33);
+            this.imgMainPicture.Margin = new System.Windows.Forms.Padding(4);
+            this.imgMainPicture.Name = "imgMainPicture";
+            this.imgMainPicture.Size = new System.Drawing.Size(1072, 577);
+            this.imgMainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgMainPicture.TabIndex = 0;
+            this.imgMainPicture.TabStop = false;
+            this.imgMainPicture.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // mnuStrip
             // 
             this.mnuStrip.BackColor = System.Drawing.Color.Transparent;
@@ -127,6 +127,7 @@
             this.mnuServices.Name = "mnuServices";
             this.mnuServices.Size = new System.Drawing.Size(102, 29);
             this.mnuServices.Text = "Services";
+            this.mnuServices.Click += new System.EventHandler(this.mnuServices_Click);
             // 
             // mnuSetServiceType
             // 

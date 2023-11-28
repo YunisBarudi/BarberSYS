@@ -73,9 +73,14 @@ namespace BarberAppointmentSYS
 
         private void mnuAddService_Click(object sender, EventArgs e)
         {
-            frmAddService newForm = new frmAddService();
+            frmAddService newForm = new frmAddService(this);
             this.Hide();
             newForm.Show();
+        }
+
+        private void mnuServices_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
