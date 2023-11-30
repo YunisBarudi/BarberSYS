@@ -103,5 +103,12 @@ namespace BarberAppointmentSYS
             this.Hide();
             newForm.Show();
         }
+
+        private void mnuChangeBarber_Click(object sender, EventArgs e)
+        {
+            frmChangeBarber newForm = new frmChangeBarber(this);
+            this.Hide();
+            newForm.Show();
+        }
     }
 }

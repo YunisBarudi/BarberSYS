@@ -181,6 +181,7 @@
             this.mnuChangeBarber.Name = "mnuChangeBarber";
             this.mnuChangeBarber.Size = new System.Drawing.Size(239, 30);
             this.mnuChangeBarber.Text = "Change Barber";
+            this.mnuChangeBarber.Click += new System.EventHandler(this.mnuChangeBarber_Click);
             // 
             // mnuRemoveBarber
             // 
