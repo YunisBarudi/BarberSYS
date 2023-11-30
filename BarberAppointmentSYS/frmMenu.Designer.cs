@@ -66,7 +66,6 @@
             this.lblMain1.Size = new System.Drawing.Size(219, 39);
             this.lblMain1.TabIndex = 1;
             this.lblMain1.Text = "Appointment";
-            this.lblMain1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblMain2
             // 
@@ -81,7 +80,6 @@
             this.lblMain2.Size = new System.Drawing.Size(136, 39);
             this.lblMain2.TabIndex = 2;
             this.lblMain2.Text = "System";
-            this.lblMain2.Click += new System.EventHandler(this.lblMain2_Click);
             // 
             // imgMainPicture
             // 
@@ -115,7 +113,6 @@
             this.mnuStrip.Size = new System.Drawing.Size(1067, 33);
             this.mnuStrip.TabIndex = 3;
             this.mnuStrip.Text = "menuStrip1";
-            this.mnuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // mnuServices
             // 
@@ -167,7 +164,6 @@
             this.mnuBarber.Name = "mnuBarber";
             this.mnuBarber.Size = new System.Drawing.Size(97, 29);
             this.mnuBarber.Text = "Barbers";
-            this.mnuBarber.Click += new System.EventHandler(this.barberToolStripMenuItem_Click);
             // 
             // mnuAddBarber
             // 
@@ -195,6 +191,7 @@
             this.mnuListBarbers.Name = "mnuListBarbers";
             this.mnuListBarbers.Size = new System.Drawing.Size(239, 30);
             this.mnuListBarbers.Text = "List Barbers";
+            this.mnuListBarbers.Click += new System.EventHandler(this.mnuListBarbers_Click);
             // 
             // mnuAppointment
             // 
@@ -231,7 +228,6 @@
             this.mnuYearlyRevenueAnalyse.Name = "mnuYearlyRevenueAnalyse";
             this.mnuYearlyRevenueAnalyse.Size = new System.Drawing.Size(323, 30);
             this.mnuYearlyRevenueAnalyse.Text = "Yearly Revenue Analyse";
-            this.mnuYearlyRevenueAnalyse.Click += new System.EventHandler(this.yearlyRevenueToolStripMenuItem_Click);
             // 
             // mnuYearlyBarberStatisctics
             // 

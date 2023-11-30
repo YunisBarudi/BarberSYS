@@ -27,35 +27,7 @@ namespace BarberAppointmentSYS
             mnuStrip.BringToFront();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMain2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void setServiceTypeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barberToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void yearlyRevenueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+       
 
         private void mnuSetServiceType_Click(object sender, EventArgs e)
         {
@@ -109,6 +81,13 @@ namespace BarberAppointmentSYS
         private void mnuChangeBarber_Click(object sender, EventArgs e)
         {
             frmChangeBarber newForm = new frmChangeBarber(this);
+            this.Hide();
+            newForm.Show();
+        }
+
+        private void mnuListBarbers_Click(object sender, EventArgs e)
+        {
+            frmListBarbers newForm = new frmListBarbers(this);
             this.Hide();
             newForm.Show();
         }
