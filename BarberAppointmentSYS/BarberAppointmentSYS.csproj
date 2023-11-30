@@ -70,6 +70,12 @@
     <Compile Include="frmChangeService.Designer.cs">
       <DependentUpon>frmChangeService.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRemoveBarber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemoveBarber.Designer.cs">
+      <DependentUpon>frmRemoveBarber.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDiscontinueService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangeService.resx">
       <DependentUpon>frmChangeService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemoveBarber.resx">
+      <DependentUpon>frmRemoveBarber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiscontinueService.resx">
       <DependentUpon>frmDiscontinueService.cs</DependentUpon>

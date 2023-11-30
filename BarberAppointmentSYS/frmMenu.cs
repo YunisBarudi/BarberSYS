@@ -68,7 +68,9 @@ namespace BarberAppointmentSYS
 
         private void mnuDiscontinueBarber_Click(object sender, EventArgs e)
         {
-
+            frmRemoveBarber newForm = new frmRemoveBarber(this);
+            this.Hide();
+            newForm.Show();
         }
 
         private void mnuAddService_Click(object sender, EventArgs e)
