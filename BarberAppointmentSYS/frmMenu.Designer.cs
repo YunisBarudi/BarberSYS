@@ -148,12 +148,14 @@
             this.mnuChangeService.Name = "mnuChangeService";
             this.mnuChangeService.Size = new System.Drawing.Size(282, 30);
             this.mnuChangeService.Text = "Change Service";
+            this.mnuChangeService.Click += new System.EventHandler(this.mnuChangeService_Click);
             // 
             // mnuDiscontinueService
             // 
             this.mnuDiscontinueService.Name = "mnuDiscontinueService";
             this.mnuDiscontinueService.Size = new System.Drawing.Size(282, 30);
             this.mnuDiscontinueService.Text = "Discontinue Service";
+            this.mnuDiscontinueService.Click += new System.EventHandler(this.mnuDiscontinueService_Click);
             // 
             // mnuBarber
             // 

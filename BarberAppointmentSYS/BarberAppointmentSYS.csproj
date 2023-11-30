@@ -52,6 +52,18 @@
     <Compile Include="frmAddService.Designer.cs">
       <DependentUpon>frmAddService.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChangeService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeService.Designer.cs">
+      <DependentUpon>frmChangeService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiscontinueService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiscontinueService.Designer.cs">
+      <DependentUpon>frmDiscontinueService.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +80,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddService.resx">
       <DependentUpon>frmAddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeService.resx">
+      <DependentUpon>frmChangeService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiscontinueService.resx">
+      <DependentUpon>frmDiscontinueService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

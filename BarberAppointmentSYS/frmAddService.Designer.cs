@@ -82,6 +82,7 @@
             this.lblServiceType.Size = new System.Drawing.Size(283, 38);
             this.lblServiceType.TabIndex = 3;
             this.lblServiceType.Text = "Set Service Type";
+            this.lblServiceType.Click += new System.EventHandler(this.lblServiceType_Click);
             // 
             // lblName
             // 
@@ -104,6 +105,7 @@
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(261, 38);
             this.txtServiceName.TabIndex = 5;
+            this.txtServiceName.TextChanged += new System.EventHandler(this.txtServiceName_TextChanged);
             // 
             // lblDescription
             // 
@@ -127,6 +129,7 @@
             this.lblRate.Size = new System.Drawing.Size(90, 38);
             this.lblRate.TabIndex = 7;
             this.lblRate.Text = "Rate";
+            this.lblRate.Click += new System.EventHandler(this.lblRate_Click);
             // 
             // txtRate
             // 
@@ -149,6 +152,7 @@
             this.txtDescriptionService.Size = new System.Drawing.Size(357, 93);
             this.txtDescriptionService.TabIndex = 9;
             this.txtDescriptionService.Text = "";
+            this.txtDescriptionService.TextChanged += new System.EventHandler(this.txtDescriptionService_TextChanged);
             // 
             // btnAddService
             // 

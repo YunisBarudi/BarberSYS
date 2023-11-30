@@ -82,5 +82,19 @@ namespace BarberAppointmentSYS
         {
 
         }
+
+        private void mnuChangeService_Click(object sender, EventArgs e)
+        {
+            frmChangeService newForm = new frmChangeService(this);
+            this.Hide();
+            newForm.Show();
+        }
+
+        private void mnuDiscontinueService_Click(object sender, EventArgs e)
+        {
+            frmDiscontinueService newForm = new frmDiscontinueService(this);
+            this.Hide();
+            newForm.Show();
+        }
     }
 }
