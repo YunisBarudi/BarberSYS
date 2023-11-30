@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddBarber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddBarber.Designer.cs">
+      <DependentUpon>frmAddBarber.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAddBarber.resx">
+      <DependentUpon>frmAddBarber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddService.resx">
       <DependentUpon>frmAddService.cs</DependentUpon>
     </EmbeddedResource>

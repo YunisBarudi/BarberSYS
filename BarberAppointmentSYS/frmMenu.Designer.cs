@@ -174,6 +174,7 @@
             this.mnuAddBarber.Name = "mnuAddBarber";
             this.mnuAddBarber.Size = new System.Drawing.Size(239, 30);
             this.mnuAddBarber.Text = "Add Barber";
+            this.mnuAddBarber.Click += new System.EventHandler(this.mnuAddBarber_Click);
             // 
             // mnuChangeBarber
             // 
