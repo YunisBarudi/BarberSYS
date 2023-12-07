@@ -91,5 +91,26 @@ namespace BarberAppointmentSYS
             this.Hide();
             newForm.Show();
         }
+
+        private void mnuMakeAppointment_Click(object sender, EventArgs e)
+        {
+            frmMakeAppointment newForm = new frmMakeAppointment(this);
+            this.Hide();
+            newForm.Show();
+        }
+
+        private void mnuCancelAppointment_Click(object sender, EventArgs e)
+        {
+            frmCancelAppointment newForm = new frmCancelAppointment(this);
+            this.Hide();
+            newForm.Show();
+        }
+
+        private void mnuYearlyRevenueAnalyse_Click(object sender, EventArgs e)
+        {
+            frmYearlyRevenueAnalysis newForm = new frmYearlyRevenueAnalysis(this);
+            this.Hide();
+            newForm.Show();
+        }
     }
 }

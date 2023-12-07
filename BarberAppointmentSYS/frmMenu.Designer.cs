@@ -47,7 +47,7 @@
             this.mnuMakeAppointment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCancelAppointment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuYearlyRevenueAnalyse = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuYearlyRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuYearlyBarberStatisctics = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgMainPicture)).BeginInit();
             this.mnuStrip.SuspendLayout();
@@ -207,27 +207,30 @@
             this.mnuMakeAppointment.Name = "mnuMakeAppointment";
             this.mnuMakeAppointment.Size = new System.Drawing.Size(288, 30);
             this.mnuMakeAppointment.Text = "Make Appointment";
+            this.mnuMakeAppointment.Click += new System.EventHandler(this.mnuMakeAppointment_Click);
             // 
             // mnuCancelAppointment
             // 
             this.mnuCancelAppointment.Name = "mnuCancelAppointment";
             this.mnuCancelAppointment.Size = new System.Drawing.Size(288, 30);
             this.mnuCancelAppointment.Text = "Cancel Appointment";
+            this.mnuCancelAppointment.Click += new System.EventHandler(this.mnuCancelAppointment_Click);
             // 
             // mnuAdmin
             // 
             this.mnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuYearlyRevenueAnalyse,
+            this.mnuYearlyRevenueAnalysis,
             this.mnuYearlyBarberStatisctics});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(86, 29);
             this.mnuAdmin.Text = "Admin";
             // 
-            // mnuYearlyRevenueAnalyse
+            // mnuYearlyRevenueAnalysis
             // 
-            this.mnuYearlyRevenueAnalyse.Name = "mnuYearlyRevenueAnalyse";
-            this.mnuYearlyRevenueAnalyse.Size = new System.Drawing.Size(323, 30);
-            this.mnuYearlyRevenueAnalyse.Text = "Yearly Revenue Analyse";
+            this.mnuYearlyRevenueAnalysis.Name = "mnuYearlyRevenueAnalysis";
+            this.mnuYearlyRevenueAnalysis.Size = new System.Drawing.Size(323, 30);
+            this.mnuYearlyRevenueAnalysis.Text = "Yearly Revenue Analysis";
+            this.mnuYearlyRevenueAnalysis.Click += new System.EventHandler(this.mnuYearlyRevenueAnalyse_Click);
             // 
             // mnuYearlyBarberStatisctics
             // 
@@ -277,7 +280,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMakeAppointment;
         private System.Windows.Forms.ToolStripMenuItem mnuCancelAppointment;
         private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
-        private System.Windows.Forms.ToolStripMenuItem mnuYearlyRevenueAnalyse;
+        private System.Windows.Forms.ToolStripMenuItem mnuYearlyRevenueAnalysis;
         private System.Windows.Forms.ToolStripMenuItem mnuYearlyBarberStatisctics;
     }
 }

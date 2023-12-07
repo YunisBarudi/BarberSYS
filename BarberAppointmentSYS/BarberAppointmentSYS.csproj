@@ -58,6 +58,12 @@
     <Compile Include="frmAddService.Designer.cs">
       <DependentUpon>frmAddService.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCancelAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCancelAppointment.Designer.cs">
+      <DependentUpon>frmCancelAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChangeBarber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="frmListBarbers.Designer.cs">
       <DependentUpon>frmListBarbers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMakeAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMakeAppointment.Designer.cs">
+      <DependentUpon>frmMakeAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRemoveBarber.cs">
       <SubType>Form</SubType>
@@ -100,6 +112,12 @@
     <Compile Include="frmSetServiceType.Designer.cs">
       <DependentUpon>frmSetServiceType.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmYearlyRevenueAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearlyRevenueAnalysis.Designer.cs">
+      <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddBarber.resx">
@@ -107,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddService.resx">
       <DependentUpon>frmAddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelAppointment.resx">
+      <DependentUpon>frmCancelAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangeBarber.resx">
       <DependentUpon>frmChangeBarber.cs</DependentUpon>
@@ -116,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListBarbers.resx">
       <DependentUpon>frmListBarbers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMakeAppointment.resx">
+      <DependentUpon>frmMakeAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRemoveBarber.resx">
       <DependentUpon>frmRemoveBarber.cs</DependentUpon>
@@ -128,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetServiceType.resx">
       <DependentUpon>frmSetServiceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearlyRevenueAnalysis.resx">
+      <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
