@@ -46,123 +46,123 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAddBarber.cs">
+    <Compile Include="Barbers\frmAddBarber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddBarber.Designer.cs">
+    <Compile Include="Barbers\frmAddBarber.Designer.cs">
       <DependentUpon>frmAddBarber.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddService.cs">
+    <Compile Include="Services\frmAddService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddService.Designer.cs">
+    <Compile Include="Services\frmAddService.Designer.cs">
       <DependentUpon>frmAddService.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCancelAppointment.cs">
+    <Compile Include="Appointments\frmCancelAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCancelAppointment.Designer.cs">
+    <Compile Include="Appointments\frmCancelAppointment.Designer.cs">
       <DependentUpon>frmCancelAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChangeBarber.cs">
+    <Compile Include="Barbers\frmChangeBarber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChangeBarber.Designer.cs">
+    <Compile Include="Barbers\frmChangeBarber.Designer.cs">
       <DependentUpon>frmChangeBarber.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChangeService.cs">
+    <Compile Include="Services\frmChangeService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChangeService.Designer.cs">
+    <Compile Include="Services\frmChangeService.Designer.cs">
       <DependentUpon>frmChangeService.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListBarbers.cs">
+    <Compile Include="Barbers\frmListBarbers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListBarbers.Designer.cs">
+    <Compile Include="Barbers\frmListBarbers.Designer.cs">
       <DependentUpon>frmListBarbers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMakeAppointment.cs">
+    <Compile Include="Appointments\frmMakeAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMakeAppointment.Designer.cs">
+    <Compile Include="Appointments\frmMakeAppointment.Designer.cs">
       <DependentUpon>frmMakeAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRemoveBarber.cs">
+    <Compile Include="Barbers\frmRemoveBarber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRemoveBarber.Designer.cs">
+    <Compile Include="Barbers\frmRemoveBarber.Designer.cs">
       <DependentUpon>frmRemoveBarber.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDiscontinueService.cs">
+    <Compile Include="Services\frmDiscontinueService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDiscontinueService.Designer.cs">
+    <Compile Include="Services\frmDiscontinueService.Designer.cs">
       <DependentUpon>frmDiscontinueService.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenu.cs">
+    <Compile Include="Menu\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenu.Designer.cs">
+    <Compile Include="Menu\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSetServiceType.cs">
+    <Compile Include="Services\frmSetServiceType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSetServiceType.Designer.cs">
+    <Compile Include="Services\frmSetServiceType.Designer.cs">
       <DependentUpon>frmSetServiceType.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmYearlyBarberStatistics.cs">
+    <Compile Include="Admin\frmYearlyBarberStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmYearlyBarberStatistics.Designer.cs">
+    <Compile Include="Admin\frmYearlyBarberStatistics.Designer.cs">
       <DependentUpon>frmYearlyBarberStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmYearlyRevenueAnalysis.cs">
+    <Compile Include="Admin\frmYearlyRevenueAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmYearlyRevenueAnalysis.Designer.cs">
+    <Compile Include="Admin\frmYearlyRevenueAnalysis.Designer.cs">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAddBarber.resx">
+    <EmbeddedResource Include="Barbers\frmAddBarber.resx">
       <DependentUpon>frmAddBarber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddService.resx">
+    <EmbeddedResource Include="Services\frmAddService.resx">
       <DependentUpon>frmAddService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCancelAppointment.resx">
+    <EmbeddedResource Include="Appointments\frmCancelAppointment.resx">
       <DependentUpon>frmCancelAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChangeBarber.resx">
+    <EmbeddedResource Include="Barbers\frmChangeBarber.resx">
       <DependentUpon>frmChangeBarber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChangeService.resx">
+    <EmbeddedResource Include="Services\frmChangeService.resx">
       <DependentUpon>frmChangeService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListBarbers.resx">
+    <EmbeddedResource Include="Barbers\frmListBarbers.resx">
       <DependentUpon>frmListBarbers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMakeAppointment.resx">
+    <EmbeddedResource Include="Appointments\frmMakeAppointment.resx">
       <DependentUpon>frmMakeAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRemoveBarber.resx">
+    <EmbeddedResource Include="Barbers\frmRemoveBarber.resx">
       <DependentUpon>frmRemoveBarber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDiscontinueService.resx">
+    <EmbeddedResource Include="Services\frmDiscontinueService.resx">
       <DependentUpon>frmDiscontinueService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu.resx">
+    <EmbeddedResource Include="Menu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSetServiceType.resx">
+    <EmbeddedResource Include="Services\frmSetServiceType.resx">
       <DependentUpon>frmSetServiceType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmYearlyBarberStatistics.resx">
+    <EmbeddedResource Include="Admin\frmYearlyBarberStatistics.resx">
       <DependentUpon>frmYearlyBarberStatistics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmYearlyRevenueAnalysis.resx">
+    <EmbeddedResource Include="Admin\frmYearlyRevenueAnalysis.resx">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
