@@ -112,5 +112,12 @@ namespace BarberAppointmentSYS
             this.Hide();
             newForm.Show();
         }
+
+        private void mnuYearlyBarberStatisctics_Click(object sender, EventArgs e)
+        {
+            frmYearlyBarberStatistics newForm = new frmYearlyBarberStatistics(this);
+            this.Hide();
+            newForm.Show();
+        }
     }
 }

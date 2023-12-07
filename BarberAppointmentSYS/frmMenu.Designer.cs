@@ -237,6 +237,7 @@
             this.mnuYearlyBarberStatisctics.Name = "mnuYearlyBarberStatisctics";
             this.mnuYearlyBarberStatisctics.Size = new System.Drawing.Size(323, 30);
             this.mnuYearlyBarberStatisctics.Text = "Yearly Barber Statisctics";
+            this.mnuYearlyBarberStatisctics.Click += new System.EventHandler(this.mnuYearlyBarberStatisctics_Click);
             // 
             // frmMenu
             // 

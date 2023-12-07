@@ -112,6 +112,12 @@
     <Compile Include="frmSetServiceType.Designer.cs">
       <DependentUpon>frmSetServiceType.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmYearlyBarberStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearlyBarberStatistics.Designer.cs">
+      <DependentUpon>frmYearlyBarberStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmYearlyRevenueAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetServiceType.resx">
       <DependentUpon>frmSetServiceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearlyBarberStatistics.resx">
+      <DependentUpon>frmYearlyBarberStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmYearlyRevenueAnalysis.resx">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
