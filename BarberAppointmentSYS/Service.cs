@@ -14,16 +14,16 @@ namespace BarberAppointmentSYS
         private double rate;
         private char status;
         private String service_id;
-
+        private String service_type;
         public Service() { 
         }
-        /*public static int getNextProdID()
+        public static int getNextProdID()
         {
             //Open a db connection
-            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT MAX(ProductId) FROM Products";
+            String sqlQuery = "SELECT MAX(Service_ID) FROM Services";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -46,6 +46,6 @@ namespace BarberAppointmentSYS
             conn.Close();
 
             return nextId;
-        }*/
+        }
     }
 }

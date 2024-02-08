@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,19 +46,30 @@ namespace BarberAppointmentSYS
             {   
                 if (txtDescriptionType.Text.Length <= 30 && txtDescriptionType.Text.Length>=5)
                 {
-                    Rate rate = new Rate(txtServiceType.Text,txtDescriptionType.Text);
-
-                    rate.addRate();
-
-                    MessageBox.Show("Service Type:\n"+ txtServiceType.Text.ToUpper()+" - "+ txtDescriptionType.Text+
-                         "\nWas added successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtDescriptionType.Text = string.Empty;
-                    txtServiceType.Text = string.Empty;
-                    DialogResult dialogResult =  MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dialogResult == DialogResult.Yes)
+                    try
                     {
-                        this.Close();
-                        parent.Visible = true;
+                        Rate rate = new Rate(txtServiceType.Text, txtDescriptionType.Text);
+
+                        rate.addRate();
+
+                        MessageBox.Show("Service Type:\n" + txtServiceType.Text.ToUpper() + " - " + txtDescriptionType.Text +
+                             "\nWas added successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtDescriptionType.Text = string.Empty;
+                        txtServiceType.Text = string.Empty;
+                        DialogResult dialogResult = MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            this.Close();
+                            parent.Visible = true;
+                        }
+                    }
+                    catch (OracleException ex){ 
+                        if(ex.Number == 1)
+                        {
+                            MessageBox.Show("Service Type must be unique", "Invalid Service Type!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtServiceType.Focus();
+                        }
+                            
                     }
                 }
                 else
