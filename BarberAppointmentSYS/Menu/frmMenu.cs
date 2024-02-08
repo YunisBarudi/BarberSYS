@@ -7,20 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BarberAppointmentSYS
 {
     public partial class frmMenu : Form
     {
+        OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
         public frmMenu()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
@@ -118,6 +117,22 @@ namespace BarberAppointmentSYS
             frmYearlyBarberStatistics newForm = new frmYearlyBarberStatistics(this);
             this.Hide();
             newForm.Show();
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            if(conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+                lblStatus.Text = "CLOSED";
+                lblStatus.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                conn.Open();
+                lblStatus.Text = "OPEN";
+                lblStatus.ForeColor = System.Drawing.Color.Green;   
+            }
         }
     }
 }

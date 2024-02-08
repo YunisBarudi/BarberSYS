@@ -45,8 +45,11 @@ namespace BarberAppointmentSYS
             {   
                 if (txtDescriptionType.Text.Length <= 30 && txtDescriptionType.Text.Length>=5)
                 {
-                    
-                     MessageBox.Show("Service Type:\n"+ txtServiceType.Text.ToUpper()+" - "+ txtDescriptionType.Text+
+                    Rate rate = new Rate(txtServiceType.Text,txtDescriptionType.Text);
+
+                    rate.addRate();
+
+                    MessageBox.Show("Service Type:\n"+ txtServiceType.Text.ToUpper()+" - "+ txtDescriptionType.Text+
                          "\nWas added successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtDescriptionType.Text = string.Empty;
                     txtServiceType.Text = string.Empty;
@@ -59,7 +62,8 @@ namespace BarberAppointmentSYS
                 }
                 else
                 {
-                    MessageBox.Show(" Secription must be not numeric and Length less than 30 ",
+
+                    MessageBox.Show(" Decription must be not numeric and Length less than 30 ",
                    "Invalid Description", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDescriptionType.Text = string.Empty;
                     txtServiceType.Text = string.Empty;
