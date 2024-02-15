@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace BarberAppointmentSYS
 {
@@ -27,37 +28,24 @@ namespace BarberAppointmentSYS
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBoxSetServiceType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblName_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnAddService_Click(object sender, EventArgs e)
         {
             if (cmbBoxSetServiceType.SelectedIndex != -1)
             {
-                if (txtServiceName.Text.All(t => char.IsLetter(t))  && txtServiceName.Text.Length>=5)
+                if (txtServiceName.Text.All(t => char.IsLetter(t) || t.Equals(' ')) && txtServiceName.Text.Length>=5)
                 {
 
                     if (double.TryParse(txtRate.Text, out double rateValue) && rateValue >= 0)
                     { 
                         if (txtDescriptionService.Text.Length <= 50 && txtDescriptionService.Text.Length >= 5)
                         {
+                            Service aService = new Service(Convert.ToInt32(Service.getNextServiceID()), txtServiceName.Text, txtDescriptionService.Text,
+                            Convert.ToDouble(txtRate.Text), 'A',
+                                cmbBoxSetServiceType.Text.Substring(0, 2));
+                            aService.addService();
+
                             MessageBox.Show("Service:\n"+cmbBoxSetServiceType.Text+ "\n" + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtServiceName.Text.ToLower())+ 
                                 " - " + txtDescriptionService.Text + "\nRate: "+ txtRate.Text+
                        "\nWas added successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,7 +109,7 @@ namespace BarberAppointmentSYS
 
         private void frmAddService_Load(object sender, EventArgs e)
         {
-
+            Utility.loadCategoryData(cmbBoxSetServiceType);
         }
 
         private void lblServiceType_Click(object sender, EventArgs e)
