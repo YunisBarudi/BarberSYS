@@ -109,7 +109,7 @@ namespace BarberAppointmentSYS
 
         private void frmAddService_Load(object sender, EventArgs e)
         {
-            Utility.loadCategoryData(cmbBoxSetServiceType);
+            Utility.loadRatesData(cmbBoxSetServiceType);
         }
 
         private void lblServiceType_Click(object sender, EventArgs e)

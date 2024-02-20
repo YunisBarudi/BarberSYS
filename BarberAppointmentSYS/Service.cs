@@ -163,6 +163,31 @@ namespace BarberAppointmentSYS
             //Close db connection
             conn.Close();
         }
+        public void getService(int service_id)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
 
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM Services WHERE Service_ID = " + service_id;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setServiceID(dr.GetInt32(0));
+            setName(dr.GetString(1));
+            setDescription(dr.GetString(2));
+            setRate(dr.GetDouble(3));
+            setStatus(dr.GetChar(4));
+            setService_Type(dr.GetString(5));
+
+            //close DB
+            conn.Close();
+        }
     }
 }

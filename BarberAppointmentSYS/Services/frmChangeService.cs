@@ -13,6 +13,8 @@ namespace BarberAppointmentSYS
 {
     public partial class frmChangeService : Form
     {
+        Service aService = new Service();
+
         frmMenu parent;
         public frmChangeService()
         {
@@ -26,38 +28,24 @@ namespace BarberAppointmentSYS
 
         private void cmbBoxService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoxService.SelectedIndex == 0)
-            {
-                cmbBoxSetServiceType.SelectedIndex = 1;
-                txtServiceName.Text = "Fade haircut";
-                txtRate.Text = "30.00";
-                txtDescriptionService.Text = "Gradual transition from longer to shorter hair.";
+            if(cmbBoxService.SelectedIndex != -1)
+
+
+    {
+                aService.getService(Convert.ToInt32(cmbBoxService.Text.Substring(0,2)));
+
+                txtServiceName.Text = aService.getName();
+                txtDescriptionService.Text = aService.getDescription();
+                cmbBoxSetServiceType.Text = aService.getService_type();
+                txtRate.Text = aService.getRate().ToString();
+
+                cmbBoxService.Items.Clear();
+
+                Utility.loadRatesData(cmbBoxSetServiceType);
+
                 groupBox1.Visible = true;
             }
-            if (cmbBoxService.SelectedIndex == 1)
-            {
-                cmbBoxSetServiceType.SelectedIndex = 1;
-                txtServiceName.Text = "Clipper Haircut";
-                txtRate.Text = "35.00";
-                txtDescriptionService.Text = "Efficient clipper haircuts for clean, precise styles.";
-                groupBox1.Visible = true;
-            }
-            if (cmbBoxService.SelectedIndex == 2)
-            {
-                cmbBoxSetServiceType.SelectedIndex= 2;
-                txtServiceName.Text = "Beard Fade";
-                txtRate.Text = "20.00";
-                txtDescriptionService.Text = "Gradual transition from a shorter to longer length at the chin.";
-                groupBox1.Visible = true;
-            }
-            if(cmbBoxService.SelectedIndex == 3)
-            {
-                cmbBoxSetServiceType.SelectedIndex = 0;
-                txtServiceName.Text = "Beard Shape-Up";
-                txtRate.Text = "15.00";
-                txtDescriptionService.Text = "Defining the edges of the beard for a clean look.";
-                groupBox1.Visible = true;
-            }
+            
         }
 
 
@@ -133,6 +121,11 @@ namespace BarberAppointmentSYS
                 txtRate.Text = string.Empty;
                 txtDescriptionService.Text = string.Empty;
             }
+        }
+
+        private void frmChangeService_Load(object sender, EventArgs e)
+        {
+            Utility.loadServicesData(cmbBoxService);
         }
     }
 }
