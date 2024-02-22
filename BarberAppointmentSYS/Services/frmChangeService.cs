@@ -36,14 +36,17 @@ namespace BarberAppointmentSYS
 
                 txtServiceName.Text = aService.getName();
                 txtDescriptionService.Text = aService.getDescription();
-                cmbBoxSetServiceType.Text = aService.getService_type();
+                cmbBoxSetServiceType.SelectedItem = aService.getService_type();
                 txtRate.Text = aService.getRate().ToString();
-
-                cmbBoxService.Items.Clear();
+                
 
                 Utility.loadRatesData(cmbBoxSetServiceType);
 
+                cmbBoxService.Enabled = false;
                 groupBox1.Visible = true;
+
+
+
             }
             
         }
@@ -67,6 +70,12 @@ namespace BarberAppointmentSYS
                     {
                         if (txtDescriptionService.Text.Length <= 60 && txtDescriptionService.Text.Length >= 5)
                         {
+
+                            aService.setName(txtServiceName.Text);
+                            aService.setDescription(txtDescriptionService.Text);
+                            aService.setRate(int.Parse(txtRate.Text));
+                            aService.setService_Type(cmbBoxSetServiceType.SelectedItem.ToString().Substring(0,2));
+                            aService.changeService();
                             MessageBox.Show("Service:\n" + cmbBoxSetServiceType.Text + "\n" + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtServiceName.Text.ToLower()) +
                                 " - " + txtDescriptionService.Text + "\nRate: " + txtRate.Text +
                        "\nWas changed successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,6 +91,10 @@ namespace BarberAppointmentSYS
                                 this.Close();
                                 parent.Visible = true;
                             }
+                            cmbBoxService.Items.Clear();
+                            cmbBoxSetServiceType.Items.Clear();
+                            cmbBoxService.Enabled = true;
+                            Utility.loadServicesData(cmbBoxService);
                         }
                         else
                         {

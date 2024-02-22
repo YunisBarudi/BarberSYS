@@ -31,7 +31,7 @@ namespace BarberAppointmentSYS
         public static void loadServicesData(ComboBox cboName)
         {
             //Define SQL query to retrieve the last Id assigned
-            String strSQL = "SELECT Service_ID,Name FROM Services";
+            String strSQL = "SELECT Service_ID,Name FROM Services WHERE Status = 'A'";
             //Connect to the database
             OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
             conn.Open();

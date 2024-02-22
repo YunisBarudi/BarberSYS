@@ -44,8 +44,9 @@
             this.imgDiscontinueService.Enabled = false;
             this.imgDiscontinueService.Image = global::BarberAppointmentSYS.Properties.Resources.backlogo;
             this.imgDiscontinueService.Location = new System.Drawing.Point(0, 0);
+            this.imgDiscontinueService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgDiscontinueService.Name = "imgDiscontinueService";
-            this.imgDiscontinueService.Size = new System.Drawing.Size(1067, 554);
+            this.imgDiscontinueService.Size = new System.Drawing.Size(800, 450);
             this.imgDiscontinueService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgDiscontinueService.TabIndex = 3;
             this.imgDiscontinueService.TabStop = false;
@@ -55,9 +56,10 @@
             this.lblService.AutoSize = true;
             this.lblService.BackColor = System.Drawing.Color.Transparent;
             this.lblService.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblService.Location = new System.Drawing.Point(100, 122);
+            this.lblService.Location = new System.Drawing.Point(75, 99);
+            this.lblService.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(150, 42);
+            this.lblService.Size = new System.Drawing.Size(121, 36);
             this.lblService.TabIndex = 14;
             this.lblService.Text = "Service";
             // 
@@ -65,24 +67,21 @@
             // 
             this.cmbBoxService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxService.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBoxService.Items.AddRange(new object[] {
-            "Fade haircut",
-            "Clipper haircut",
-            "Beard Fade",
-            "Beard Shape-Up"});
-            this.cmbBoxService.Location = new System.Drawing.Point(392, 125);
+            this.cmbBoxService.Location = new System.Drawing.Point(294, 102);
+            this.cmbBoxService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbBoxService.Name = "cmbBoxService";
             this.cmbBoxService.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cmbBoxService.Size = new System.Drawing.Size(288, 39);
+            this.cmbBoxService.Size = new System.Drawing.Size(217, 34);
             this.cmbBoxService.TabIndex = 15;
             // 
             // btnDiscontinueService
             // 
             this.btnDiscontinueService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDiscontinueService.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscontinueService.Location = new System.Drawing.Point(381, 454);
+            this.btnDiscontinueService.Location = new System.Drawing.Point(286, 369);
+            this.btnDiscontinueService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDiscontinueService.Name = "btnDiscontinueService";
-            this.btnDiscontinueService.Size = new System.Drawing.Size(312, 67);
+            this.btnDiscontinueService.Size = new System.Drawing.Size(234, 54);
             this.btnDiscontinueService.TabIndex = 19;
             this.btnDiscontinueService.Text = "Discontinue Service";
             this.btnDiscontinueService.UseVisualStyleBackColor = true;
@@ -91,9 +90,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(107, 468);
+            this.btnBack.Location = new System.Drawing.Point(80, 380);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(106, 53);
+            this.btnBack.Size = new System.Drawing.Size(80, 43);
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -101,17 +101,19 @@
             // 
             // frmDiscontinueService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDiscontinueService);
             this.Controls.Add(this.cmbBoxService);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.imgDiscontinueService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmDiscontinueService";
             this.Text = "Discontinue Service";
+            this.Load += new System.EventHandler(this.frmDiscontinueService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgDiscontinueService)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -13,6 +13,8 @@ namespace BarberAppointmentSYS
     public partial class frmDiscontinueService : Form
     {
         frmMenu parent;
+
+        Service aService = new Service();
         public frmDiscontinueService()
         {
             InitializeComponent();
@@ -31,11 +33,16 @@ namespace BarberAppointmentSYS
 
         private void btnDiscontinueService_Click(object sender, EventArgs e)
         {
-            if (cmbBoxService.SelectedIndex>=0 && cmbBoxService.SelectedIndex<=3) {
+            if (cmbBoxService.SelectedIndex != -1) {
+
+                aService.getService(Convert.ToInt32(cmbBoxService.Text.Substring(0, 2)));
+
+                aService.discontinueService();
+
                 MessageBox.Show("Service was discontinued successfully", "Confirmation message",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cmbBoxService.Items.Remove(cmbBoxService.SelectedItem);
-                cmbBoxService.SelectedIndex = -1;
+                cmbBoxService.Items.Clear();
+                Utility.loadServicesData(cmbBoxService);
                 DialogResult dialogResult = MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -50,6 +57,9 @@ namespace BarberAppointmentSYS
             }
         }
 
-     
+        private void frmDiscontinueService_Load(object sender, EventArgs e)
+        {
+            Utility.loadServicesData(cmbBoxService);
+        }
     }
 }

@@ -80,7 +80,7 @@ namespace BarberAppointmentSYS
         }
         public void setStatus(char status)
         {
-            this.status = 'A'; 
+            this.status = status; 
         }
         public void setServiceID(int service_id)
         {
@@ -145,14 +145,13 @@ namespace BarberAppointmentSYS
             OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
 
             //Define the SQL query to be executed
-            String sqlQuery = "UPDATE Products SET " +
-                "Service_Id = " + this.service_id + "," +
+            String sqlQuery = "UPDATE Services SET " +
                 "Name = '" + this.name + "'," +
                 "Description = '" + this.description + "'," +
                 "Rate = " + this.rate + "," +
                 "Status = '" + this.status + "'," +
-                "TypeCode = '" + this.service_type + "' " +
-                "WHERE ProductId = " + this.service_id;
+                "Service_Type = '" + this.service_type + "' " +
+                "WHERE Service_Id = " + this.service_id;
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -161,6 +160,21 @@ namespace BarberAppointmentSYS
             cmd.ExecuteNonQuery();
 
             //Close db connection
+            conn.Close();
+        }
+
+        public void discontinueService()
+        {
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+
+            String sqlQuery = "UPDATE SERVICES SET " +
+                "Status = 'D' " +
+                "WHERE Service_Id = " +this.service_id;
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+            
             conn.Close();
         }
         public void getService(int service_id)
@@ -183,7 +197,7 @@ namespace BarberAppointmentSYS
             setName(dr.GetString(1));
             setDescription(dr.GetString(2));
             setRate(dr.GetDouble(3));
-            setStatus(dr.GetChar(4));
+            setStatus(Convert.ToChar(dr.GetString(4)));
             setService_Type(dr.GetString(5));
 
             //close DB
