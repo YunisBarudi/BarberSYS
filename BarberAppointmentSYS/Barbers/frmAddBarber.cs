@@ -67,10 +67,12 @@ namespace BarberAppointmentSYS
                         {
                             if (txtEmail.Text.Length>=10)
                             {
-                                BarberID++;
+                                Barber aBarber = new Barber(Convert.ToInt32(Barber.getNextBarber_ID()),txtForename.Text,
+                                    txtSurname.Text,txtPostcode.Text, txtEmail.Text, txtPhoneNumber.Text, 'A');
+                                aBarber.addBarber();
                                 MessageBox.Show("Barber:\n" + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtForename.Text.ToLower())
                                      +" "+ CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtSurname.Text.ToLower()) +
-                                     "\nBarber ID: "+ BarberID + "\nPostcode: " + txtPostcode.Text+"\nPhone number: "+txtPhoneNumber.Text+"\nE-mail: "+txtEmail.Text+
+                                      "\nPostcode: " + txtPostcode.Text+"\nPhone number: "+txtPhoneNumber.Text+"\nE-mail: "+txtEmail.Text+
                                      "\nWas added successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 txtForename.Text = string.Empty;
                                 txtSurname.Text = string.Empty;

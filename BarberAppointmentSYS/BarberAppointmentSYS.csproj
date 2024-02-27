@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Barber.cs" />
     <Compile Include="Barbers\frmAddBarber.cs">
       <SubType>Form</SubType>
     </Compile>
