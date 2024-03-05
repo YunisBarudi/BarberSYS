@@ -13,7 +13,7 @@ namespace BarberAppointmentSYS
 {
     public partial class frmChangeBarber : Form
     {
-        int BarberID;
+        Barber aBarber = new Barber();
         frmMenu parent;
         public frmChangeBarber()
         {
@@ -59,9 +59,15 @@ namespace BarberAppointmentSYS
                         {
                             if (txtEmail.Text.Length >= 10)
                             {
+                                aBarber.setForename(txtForename.Text);
+                                aBarber.setSurname(txtSurname.Text);
+                                aBarber.setEmail(txtEmail.Text);
+                                aBarber.setPhone(txtPhoneNumber.Text);
+                                aBarber.setPostcode(txtPostcode.Text);
+                                aBarber.changeBarber();
                                 MessageBox.Show("Barber:\n" + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtForename.Text.ToLower())
                                      + " " + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtSurname.Text.ToLower()) +
-                                     "\nBarber ID: " + BarberID + "\nPostcode: " + txtPostcode.Text + "\nPhone number: " + txtPhoneNumber.Text + "\nE-mail: " + txtEmail.Text +
+                                     "\nPostcode: " + txtPostcode.Text + "\nPhone number: " + txtPhoneNumber.Text + "\nE-mail: " + txtEmail.Text +
                                      "\nWas changed successfully", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 txtForename.Text = string.Empty;
                                 txtSurname.Text = string.Empty;
@@ -76,6 +82,8 @@ namespace BarberAppointmentSYS
                                     this.Close();
                                     parent.Visible = true;
                                 }
+                                cmbBoxBarber.Items.Clear();
+                                Utility.loadBarbersData(cmbBoxBarber);
                             }
                             else
                             {
@@ -128,46 +136,22 @@ namespace BarberAppointmentSYS
 
         private void cmbBoxService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoxBarber.SelectedIndex == 0)
+            if(cmbBoxBarber.SelectedIndex != -1)
             {
-                txtForename.Text = "Joe";
-                txtSurname.Text = "Bloggs";
-                txtPostcode.Text = "V92CX88";
-                txtPhoneNumber.Text = "0877932274";
-                txtEmail.Text = "joe.bloggs@students.ittralee.ie";
-                BarberID = 1;
-               
+                aBarber.getBarber(Convert.ToInt32(cmbBoxBarber.Text.Substring(0,2)));
+                txtForename.Text = aBarber.getForename();
+                txtSurname.Text= aBarber.getSurname();
+                txtPostcode.Text= aBarber.getPostcode();
+                txtEmail.Text= aBarber.getEmail();
+                txtPhoneNumber.Text = aBarber.getPhone();
+                grpBoxChangeBarber.Visible = true;
+                btnChangeBarber.Visible = true;
             }
-            if (cmbBoxBarber.SelectedIndex == 1)
-            {
-                txtForename.Text = "Yunis";
-                txtSurname.Text = "Barudi";
-                txtPostcode.Text = "V92FC79";
-                txtPhoneNumber.Text = "0877932874";
-                txtEmail.Text = "unis1barudi@gmail.com";
-                BarberID = 2;
-            }
-            if(cmbBoxBarber.SelectedIndex == 2)
-            {
-                txtForename.Text = "Roman";
-                txtSurname.Text = "Hnat";
-                txtPostcode.Text = "V92FC79";
-                txtPhoneNumber.Text = "0879076212";
-                txtEmail.Text = "roman.hnatyshyn@students.ittralee.ie";
-                BarberID = 3;
+        }
 
-            }
-            if(cmbBoxBarber.SelectedIndex == 3)
-            {
-                txtForename.Text = "Lionel";
-                txtSurname.Text = "Messi";
-                txtPostcode.Text = "V91FC78";
-                txtPhoneNumber.Text = "0871234569";
-                txtEmail.Text = "lionel.messi@students.ittralee.ie";
-                BarberID = 4;
-            }
-            grpBoxChangeBarber.Visible = true;
-            btnChangeBarber.Visible = true;
+        private void frmChangeBarber_Load(object sender, EventArgs e)
+        {
+            Utility.loadBarbersData(cmbBoxBarber);
         }
     }
 }

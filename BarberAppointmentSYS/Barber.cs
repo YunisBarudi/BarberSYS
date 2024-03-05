@@ -152,5 +152,57 @@ namespace BarberAppointmentSYS
             //Close db connection
             conn.Close();
         }
+        public void getBarber(int barber_id)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM Barbers WHERE Barber_ID = " + barber_id;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setBarber_Id(dr.GetInt32(0));
+            setForename(dr.GetString(1));
+            setSurname(dr.GetString(2));
+            setPostcode(dr.GetString(3));
+            setPhone(dr.GetString(4));
+            setEmail(dr.GetString(5));
+            setStatus(Convert.ToChar(dr.GetString(6)));
+            
+
+            //close DB
+            conn.Close();
+        }
+        public void changeBarber()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE Barbers SET " +
+                "Forename = '" + this.forename + "'," +
+                "Surname = '" + this.surname + "'," +
+                "Postcode = '" + this.postcode + "'," +
+                "Phone = '" + this.phone + "'," +
+                "Email = '" + this.email + "'," +
+                "Status = '" + this.status + "' " +
+                "WHERE Barber_Id = " + this.barber_id;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
     }
 }
