@@ -44,7 +44,7 @@
             this.imgDiscontinueService.Enabled = false;
             this.imgDiscontinueService.Image = global::BarberAppointmentSYS.Properties.Resources.backlogo;
             this.imgDiscontinueService.Location = new System.Drawing.Point(0, 0);
-            this.imgDiscontinueService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgDiscontinueService.Margin = new System.Windows.Forms.Padding(2);
             this.imgDiscontinueService.Name = "imgDiscontinueService";
             this.imgDiscontinueService.Size = new System.Drawing.Size(800, 450);
             this.imgDiscontinueService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,7 +68,7 @@
             this.cmbBoxService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxService.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBoxService.Location = new System.Drawing.Point(294, 102);
-            this.cmbBoxService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBoxService.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBoxService.Name = "cmbBoxService";
             this.cmbBoxService.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbBoxService.Size = new System.Drawing.Size(217, 34);
@@ -79,7 +79,7 @@
             this.btnDiscontinueService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDiscontinueService.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiscontinueService.Location = new System.Drawing.Point(286, 369);
-            this.btnDiscontinueService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiscontinueService.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiscontinueService.Name = "btnDiscontinueService";
             this.btnDiscontinueService.Size = new System.Drawing.Size(234, 54);
             this.btnDiscontinueService.TabIndex = 19;
@@ -91,7 +91,7 @@
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(80, 380);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(80, 43);
             this.btnBack.TabIndex = 20;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.imgDiscontinueService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDiscontinueService";
             this.Text = "Discontinue Service";
             this.Load += new System.EventHandler(this.frmDiscontinueService_Load);

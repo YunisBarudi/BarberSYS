@@ -61,5 +61,7 @@ namespace BarberAppointmentSYS
         {
             Utility.loadServicesData(cmbBoxService);
         }
+
+  
     }
 }

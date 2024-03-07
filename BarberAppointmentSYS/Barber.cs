@@ -204,5 +204,19 @@ namespace BarberAppointmentSYS
             //Close db connection
             conn.Close();
         }
+        public void removeBarber()
+        {
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+
+            String sqlQuery = "UPDATE Barbers SET " +
+                "Status = 'D' " +
+                "WHERE Barber_Id = " + this.barber_id;
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

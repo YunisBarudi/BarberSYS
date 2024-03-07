@@ -14,6 +14,8 @@ namespace BarberAppointmentSYS
     {
         frmMenu parent;
 
+        Barber aBarber = new Barber();
+
         public frmRemoveBarber()
         {
             InitializeComponent();
@@ -26,12 +28,15 @@ namespace BarberAppointmentSYS
 
         private void btnChangeBarber_Click(object sender, EventArgs e)
         {
-            if (cmbBoxBarber.SelectedIndex >= 0 && cmbBoxBarber.SelectedIndex <= 3)
+            if (cmbBoxBarber.SelectedIndex!=-1)
             {
+                aBarber.getBarber(Convert.ToInt32(cmbBoxBarber.Text.Substring(0, 2)));
+
+                aBarber.removeBarber();
                 MessageBox.Show("Barber was discontinued successfully", "Confirmation message",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cmbBoxBarber.Items.Remove(cmbBoxBarber.SelectedItem);
-                cmbBoxBarber.SelectedIndex = -1;
+                cmbBoxBarber.Items.Clear();
+                Utility.loadBarbersData(cmbBoxBarber);
                 DialogResult dialogResult = MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -51,5 +56,12 @@ namespace BarberAppointmentSYS
             this.Close();
             parent.Visible = true;
         }
+
+        private void frmRemoveBarber_Load(object sender, EventArgs e)
+        {
+            Utility.loadBarbersData(cmbBoxBarber);
+        }
+
+      
     }
 }
