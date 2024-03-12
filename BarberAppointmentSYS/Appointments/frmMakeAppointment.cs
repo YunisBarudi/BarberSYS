@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarberAppointmentSYS.Appointments;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace BarberAppointmentSYS
 
     public partial class frmMakeAppointment : Form
     {
-        int AppointmentID = 0;
+        Appointment anAppointment = new Appointment();
         frmMenu parent;
         public frmMakeAppointment()
         {
@@ -40,13 +41,9 @@ namespace BarberAppointmentSYS
                 MessageBox.Show("Barber must be selected ",
                         "Barber Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (cmbBoxBarber.SelectedIndex == 3)
-            {
-                MessageBox.Show("No available appointments on that time ",
-                        "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             else
             {
+                anAppointment.checkAvailableTimeSlots(String.Format("{0:yyyy-MM-dd}",appDatePicker), cmbBoxTime);
                 lblSelectTime.Visible = true;
                 cmbBoxTime.Visible = true;
                 cmbBoxBarber.Enabled = false;
@@ -71,8 +68,7 @@ namespace BarberAppointmentSYS
                         {
                             if(txtBoxEmail.Text.Length >= 10)
                             {
-                                AppointmentID++;
-                                MessageBox.Show("Appointment Details:\n\nAppointment ID: 0000" + AppointmentID + "\nBarber: "
+                                MessageBox.Show("Appointment Details:\n\n"+"\nBarber: "
                                     + cmbBoxBarber.Text +
                                     "\nDate: " + appDatePicker.Text + "\nTime: " + cmbBoxTime.Text + "\nService: " + cmbBoxService.Text +
                                     "\n\n\nCustomer Details:\n\nForename: " + txtBoxForename.Text + "\nSurname: " + txtBoxSurname.Text +
@@ -142,5 +138,11 @@ namespace BarberAppointmentSYS
             }
         }
 
+        private void frmMakeAppointment_Load(object sender, EventArgs e)
+        {
+            Utility.loadBarbersData(cmbBoxBarber);
+            appDatePicker.MinDate = DateTime.Today;
+            appDatePicker.Value = DateTime.Today;
+        }
     }
 }
