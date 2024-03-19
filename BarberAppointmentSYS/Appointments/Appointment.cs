@@ -15,7 +15,7 @@ namespace BarberAppointmentSYS.Appointments
         private string surname;
         private string phone;
         private string email;
-        private string appointmentDate;
+        private DateTime appointmentDate;
         private string appointmentTime;
         private int service_id;
         private int barber_id;
@@ -28,14 +28,14 @@ namespace BarberAppointmentSYS.Appointments
             this.surname = "";
             this.phone = "";
             this.email = "";
-            this.appointmentDate = "";
+            this.appointmentDate = DateTime.Now;
             this.appointmentTime = "";
             this.service_id = 0;
             this.barber_id = 0;
 
         }
         public Appointment(int appointment_id, string forename, string surname, string phone,
-            string email, string appointmentDate, string appointmentTime, int service_id, int barber_id)
+            string email, DateTime appointmentDate, string appointmentTime, int service_id, int barber_id)
         {
             this.appointment_id = appointment_id;
             this.forename = forename;
@@ -69,7 +69,7 @@ namespace BarberAppointmentSYS.Appointments
         {
             return this.email;
         }
-        public string getAppointmentDate()
+        public DateTime getAppointmentDate()
         {
             return this.appointmentDate;
         }
@@ -103,7 +103,7 @@ namespace BarberAppointmentSYS.Appointments
         {
             this.email = email;
         }
-        public void setAppointmentDate(String appointment_date)
+        public void setAppointmentDate(DateTime appointment_date)
         {
             this.appointmentDate = appointment_date;
         }
@@ -173,7 +173,7 @@ namespace BarberAppointmentSYS.Appointments
             //Close db connection
             conn.Close();
         }
-        public void checkAvailableTimeSlots(string selectedDate, ComboBox cmbTime)
+        public void checkAvailableTimeSlots(string selectedDate, int selectedBarberId, ComboBox cmbTime)
         {
             try
             {
@@ -188,7 +188,8 @@ namespace BarberAppointmentSYS.Appointments
                                                      "WHERE apptime NOT IN (" +
                                                      "    SELECT apptime " +
                                                      "    FROM Appointments " +
-                                                     "    WHERE TRUNC(appointmentdate) = TO_DATE(:selectedDate, 'YYYY-MM-DD')" +
+                                                     "    WHERE TRUNC(appointmentdate) = TO_DATE(:selectedDate, 'YYYY-MM-DD') " +
+                                                     "    AND barber_id = :selectedBarberId" +
                                                      ")";
 
                 conn.Open();
@@ -196,6 +197,7 @@ namespace BarberAppointmentSYS.Appointments
                 using (OracleCommand getAvailableTimeSlotsCommand = new OracleCommand(getAvailableTimeSlotsQuery, conn))
                 {
                     getAvailableTimeSlotsCommand.Parameters.Add(":selectedDate", selectedDate);
+                    getAvailableTimeSlotsCommand.Parameters.Add(":selectedBarberId", selectedBarberId);
 
                     OracleDataReader timeSlotsReader = getAvailableTimeSlotsCommand.ExecuteReader();
                     cmbTime.Items.Clear();
@@ -215,6 +217,8 @@ namespace BarberAppointmentSYS.Appointments
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+
 
 
     }

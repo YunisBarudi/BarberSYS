@@ -14,7 +14,6 @@ namespace BarberAppointmentSYS
 {
     public partial class frmAddBarber : Form
     {
-        int BarberID = 0;
         frmMenu parent;
         public frmAddBarber()
         {

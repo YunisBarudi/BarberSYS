@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,90 @@ namespace BarberAppointmentSYS
             }
             conn.Close();
         }
+        public static int getSelectedBarberId(ComboBox comboBox)
+        {
+            if (comboBox.SelectedItem == null)
+            {
+                // If no item is selected, return -1
+                return -1;
+            }
+
+            // Get the selected item from the combo box
+            string selectedBarber = comboBox.SelectedItem.ToString();
+
+
+            // Find the index of the '-' character
+            int separatorIndex = selectedBarber.IndexOf('-');
+
+            if (separatorIndex == -1)
+            {
+                // If the separator '-' is not found, return -1
+                return -1;
+            }
+
+            // Extract the barber ID substring
+            string barberIdString = selectedBarber.Substring(0, separatorIndex).Trim();
+
+            int barberId;
+            if (int.TryParse(barberIdString, out barberId))
+            {
+                // Return the parsed barber ID
+                return barberId;
+            }
+            else
+            {
+                // Return -1 if parsing fails
+                return -1;
+            }
+        }
+        public static int getSelectedServiceId(ComboBox comboBox)
+        {
+            if (comboBox.SelectedItem == null)
+            {
+                return -1;
+            }
+
+            string serviceName = comboBox.SelectedItem.ToString();
+
+            string strSQL = "SELECT Service_ID FROM Services WHERE Name = :service";
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
+                {
+                    conn.Open();
+
+                    using (OracleCommand cmd = new OracleCommand(strSQL, conn))
+                    {
+                        // Create OracleParameter and add it to the Parameters collection
+                        OracleParameter parameter = new OracleParameter(":service", OracleDbType.Varchar2);
+                        parameter.Value = serviceName;
+                        cmd.Parameters.Add(parameter);
+
+                        // Execute the command using ExecuteScalar to get single value
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            // If result is not null, service exists, return its ID
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            // If service not found or error occurred, return -1
+            return -1;
+        }
+
+
+
+
+
 
 
 
