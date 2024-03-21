@@ -43,7 +43,9 @@ namespace BarberAppointmentSYS
             }
             else
             {
-                anAppointment.checkAvailableTimeSlots(String.Format("{0:yyyy-MM-dd}",appDatePicker),Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
+                anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
+
+
                 lblSelectTime.Visible = true;
                 cmbBoxTime.Visible = true;
                 cmbBoxBarber.Enabled = false;
@@ -70,10 +72,10 @@ namespace BarberAppointmentSYS
                         {
                             if(txtBoxEmail.Text.Length >= 10)
                             {
-                                //Appointment anAppointment = new Appointment(Convert.ToInt32(Appointment.getNextAppointment_ID()),txtBoxForename.Text,txtBoxSurname.Text,
-                               //     txtBoxPhone.Text,txtBoxEmail.Text,
-                              //      String.Format("{0:dd-MMM-yy}", appDatePicker.Value), cmbBoxTime.Text,Utility.getSelectedBarberId(cmbBoxService),Utility.getSelectedBarberId(cmbBoxBarber));
-                             //   anAppointment.addAppointment();
+                                Appointment anAppointment = new Appointment(Convert.ToInt32(Appointment.getNextAppointment_ID()),txtBoxForename.Text,txtBoxSurname.Text,
+                                   txtBoxPhone.Text,txtBoxEmail.Text,
+                                 DateTime.Parse(String.Format("{0:dd-MMM-yy}", appDatePicker.Value)), cmbBoxTime.Text,Utility.getSelectedBarberId(cmbBoxService),Utility.getSelectedBarberId(cmbBoxBarber));
+                                 anAppointment.addAppointment();
 
 
                              ///   String.Format("{0:dd-MMM-yy}", dtpDOB.Value)

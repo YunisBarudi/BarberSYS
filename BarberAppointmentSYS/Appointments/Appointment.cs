@@ -152,64 +152,69 @@ namespace BarberAppointmentSYS.Appointments
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
 
+            string appointmentDateString = this.appointmentDate.ToString("dd-MMM-yy");
+
             //Define the SQL query to be executed
             String sqlQuery = "INSERT INTO Appointments Values (" +
-                this.appointment_id + ",'" +
-                this.forename + "','" +
-                this.surname + "','" +
-                this.phone + "','" +
-                this.email + "','" +
-                this.appointmentDate + "','" +
-                this.appointmentTime + "'," +
-                this.service_id + "," +
-                this.barber_id + ")";
 
-            //Execute the SQL query (OracleCommand)
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+                  this.appointment_id + ", '" +
+                  this.forename + "', '" +
+                  this.surname + "', '" +
+                  this.phone + "', '" +
+                  this.email + "', " +
+                  "TO_DATE(:appointmentDate, 'DD-MON-YY'), '" +
+                  this.appointmentTime + "', " +
+                  this.service_id + ", " +
+                  this.barber_id + ")";
+
             conn.Open();
 
-            cmd.ExecuteNonQuery();
+            // Create an OracleCommand object with the SQL query and connection
+            using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+            {
+                
+                cmd.Parameters.Add(":appointmentDate", OracleDbType.Varchar2).Value = appointmentDateString;
 
-            //Close db connection
+                Console.WriteLine(this.appointmentDate);
+                // Execute the command (insert data into the database)
+                cmd.ExecuteNonQuery();
+            }
+            
+
+            // Close the connection
             conn.Close();
         }
         public void checkAvailableTimeSlots(string selectedDate, int selectedBarberId, ComboBox cmbTime)
         {
             try
             {
-                OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
-
-                // Debugging: Print the selectedDate and connection string
-                Console.WriteLine("Selected Date: " + selectedDate);
-                Console.WriteLine("Connection String: " + DBConnectcs.oraDB);
-
-                string getAvailableTimeSlotsQuery = "SELECT apptime " +
-                                                     "FROM AppointmentTimes " +
-                                                     "WHERE apptime NOT IN (" +
-                                                     "    SELECT apptime " +
-                                                     "    FROM Appointments " +
-                                                     "    WHERE TRUNC(appointmentdate) = TO_DATE(:selectedDate, 'YYYY-MM-DD') " +
-                                                     "    AND barber_id = :selectedBarberId" +
-                                                     ")";
-
-                conn.Open();
-
-                using (OracleCommand getAvailableTimeSlotsCommand = new OracleCommand(getAvailableTimeSlotsQuery, conn))
+                using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
                 {
-                    getAvailableTimeSlotsCommand.Parameters.Add(":selectedDate", selectedDate);
-                    getAvailableTimeSlotsCommand.Parameters.Add(":selectedBarberId", selectedBarberId);
+                    string getAvailableTimeSlotsQuery = @"
+                SELECT at.apptime
+                FROM AppointmentTimes at
+                LEFT JOIN Appointments a ON at.apptime = a.apptime AND TRUNC(TO_DATE(a.appointmentdate, 'DD-MON-YY')) = TRUNC(TO_DATE(:selectedDate, 'DD-MON-YY')) AND a.barber_id = :selectedBarberId
+                WHERE a.appointment_id IS NULL
+                ORDER BY at.apptime";
 
-                    OracleDataReader timeSlotsReader = getAvailableTimeSlotsCommand.ExecuteReader();
-                    cmbTime.Items.Clear();
+                    conn.Open();
 
-                    while (timeSlotsReader.Read())
+                    using (OracleCommand getAvailableTimeSlotsCommand = new OracleCommand(getAvailableTimeSlotsQuery, conn))
                     {
-                        cmbTime.Items.Add(timeSlotsReader["apptime"]);
-                    }
-                    timeSlotsReader.Close();
-                }
+                        getAvailableTimeSlotsCommand.Parameters.Add(":selectedDate", OracleDbType.Varchar2).Value = selectedDate;
+                        getAvailableTimeSlotsCommand.Parameters.Add(":selectedBarberId", OracleDbType.Int32).Value = selectedBarberId;
 
-                conn.Close();
+                        using (OracleDataReader timeSlotsReader = getAvailableTimeSlotsCommand.ExecuteReader())
+                        {
+                            cmbTime.Items.Clear();
+
+                            while (timeSlotsReader.Read())
+                            {
+                                cmbTime.Items.Add(timeSlotsReader["apptime"]);
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -217,6 +222,10 @@ namespace BarberAppointmentSYS.Appointments
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+
+
+
 
 
 
