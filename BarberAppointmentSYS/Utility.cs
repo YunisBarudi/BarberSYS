@@ -143,6 +143,28 @@ namespace BarberAppointmentSYS
             return -1;
         }
 
+        public static void loadBarberAppointments(ComboBox cboName, int barber_id, DateTime appointmentDate )
+        {
+
+            string appointmentDateString = appointmentDate.ToString("dd-MMM-yy");
+            //Define SQL query to retrieve the last Id assigned
+            String strSQL = "SELECT Appointment_ID,Forename,Surname,AppTime,Barber_Id FROM Appointments WHERE Barber_ID = :barber_id AND AppointmentDate = :appointmentDateString";
+            //Connect to the database
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+            conn.Open();
+            //define an Oracle command
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            //execute the command using an Oracle DataReader
+            cmd.Parameters.Add(":barber_id", OracleDbType.Int32).Value = barber_id;
+            cmd.Parameters.Add(":appointmentDateString", OracleDbType.Varchar2).Value = appointmentDateString;
+            OracleDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cboName.Items.Add(dr.GetString(0).PadLeft(2, '0') + " - " + dr.GetString(1) + " " + dr.GetString(2) + " " + dr.GetString(3)+ " " +dr.GetString(4).PadLeft(2, '0'));
+            }
+            conn.Close();
+        }
+
 
 
 

@@ -184,6 +184,59 @@ namespace BarberAppointmentSYS.Appointments
             // Close the connection
             conn.Close();
         }
+        public void cancelAppointment(ComboBox cboName)
+        {
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+            if (cboName.SelectedItem != null)
+            {
+                // Get the selected item from the ComboBox
+                string selectedItem = cboName.SelectedItem.ToString();
+
+                // Extract the Appointment_ID from the selected item (assuming it's the first part before the dash)
+                string[] parts = selectedItem.Split('-');
+                if (parts.Length >= 1)
+                {
+                    string appointmentID = parts[0].Trim();
+
+                    // Define the SQL query to delete the appointment
+                    string strSQL = "DELETE FROM Appointments WHERE Appointment_ID = :appointmentID";
+
+                    // Connect to the database
+                   conn.Open();
+
+                        // Define the Oracle command
+                        using (OracleCommand cmd = new OracleCommand(strSQL, conn))
+                        {
+                            // Add parameter for appointmentID
+                            cmd.Parameters.Add(":appointmentID", OracleDbType.Int32).Value = int.Parse(appointmentID);
+
+                            // Execute the command
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                // Appointment deleted successfully
+                                MessageBox.Show("Appointment deleted successfully.");
+                            }
+                            else
+                            {
+                                // No rows affected, appointment might not exist
+                                MessageBox.Show("No appointment found to delete.");
+                            }
+                        }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Invalid selected item format.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an appointment to delete.");
+            }
+
+        }
         public void checkAvailableTimeSlots(string selectedDate, int selectedBarberId, ComboBox cmbTime)
         {
             try
@@ -218,7 +271,6 @@ namespace BarberAppointmentSYS.Appointments
             }
             catch (Exception ex)
             {
-                // Log or display the error message
                 MessageBox.Show("Error: " + ex.Message);
             }
         }

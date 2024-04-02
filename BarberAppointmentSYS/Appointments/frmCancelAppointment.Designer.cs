@@ -47,16 +47,12 @@
             // 
             this.cmbBoxBarber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxBarber.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBoxBarber.Items.AddRange(new object[] {
-            "001 Joe Bloggs",
-            "002 Yunis Barudi",
-            "003 Roman Hnat",
-            "004 Lionel Messi"});
             this.cmbBoxBarber.Location = new System.Drawing.Point(509, 43);
             this.cmbBoxBarber.Name = "cmbBoxBarber";
             this.cmbBoxBarber.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cmbBoxBarber.Size = new System.Drawing.Size(290, 39);
+            this.cmbBoxBarber.Size = new System.Drawing.Size(290, 34);
             this.cmbBoxBarber.TabIndex = 44;
+            this.cmbBoxBarber.SelectedIndexChanged += new System.EventHandler(this.cmbBoxBarber_SelectedIndexChanged);
             // 
             // lblBarber
             // 
@@ -65,7 +61,7 @@
             this.lblBarber.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBarber.Location = new System.Drawing.Point(363, 46);
             this.lblBarber.Name = "lblBarber";
-            this.lblBarber.Size = new System.Drawing.Size(110, 36);
+            this.lblBarber.Size = new System.Drawing.Size(92, 29);
             this.lblBarber.TabIndex = 43;
             this.lblBarber.Text = "Barber";
             // 
@@ -73,11 +69,11 @@
             // 
             this.appDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appDatePicker.Location = new System.Drawing.Point(360, 118);
-            this.appDatePicker.MinDate = new System.DateTime(2023, 12, 7, 0, 0, 0, 0);
+            this.appDatePicker.MinDate = new System.DateTime(2024, 4, 2, 12, 14, 41, 0);
             this.appDatePicker.Name = "appDatePicker";
-            this.appDatePicker.Size = new System.Drawing.Size(439, 38);
+            this.appDatePicker.Size = new System.Drawing.Size(439, 32);
             this.appDatePicker.TabIndex = 42;
-            this.appDatePicker.Value = new System.DateTime(2023, 12, 7, 14, 12, 0, 0);
+            this.appDatePicker.Value = new System.DateTime(2024, 4, 2, 12, 14, 41, 0);
             // 
             // btnSearch
             // 
@@ -95,16 +91,11 @@
             // 
             this.cmbBoxAppointments.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBoxAppointments.Items.AddRange(new object[] {
-            "00001    10:00         Fade haircut",
-            "00002    14:30         Clipper haircut",
-            "00003    16:00         Beard Fade",
-            "00004    18:30         Beard Shape-Up"});
             this.cmbBoxAppointments.Location = new System.Drawing.Point(9, 107);
             this.cmbBoxAppointments.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBoxAppointments.Name = "cmbBoxAppointments";
             this.cmbBoxAppointments.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cmbBoxAppointments.Size = new System.Drawing.Size(426, 39);
+            this.cmbBoxAppointments.Size = new System.Drawing.Size(426, 34);
             this.cmbBoxAppointments.TabIndex = 47;
             // 
             // lblAppointments
@@ -114,7 +105,7 @@
             this.lblAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppointments.Location = new System.Drawing.Point(118, 35);
             this.lblAppointments.Name = "lblAppointments";
-            this.lblAppointments.Size = new System.Drawing.Size(210, 36);
+            this.lblAppointments.Size = new System.Drawing.Size(172, 29);
             this.lblAppointments.TabIndex = 48;
             this.lblAppointments.Text = "Appointments";
             // 
@@ -169,7 +160,7 @@
             // 
             // frmCancelAppointment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1067, 554);
@@ -184,6 +175,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCancelAppointment";
             this.Text = "Cancel Appointment";
+            this.Load += new System.EventHandler(this.frmCancelAppointment_Load);
             this.grpBoxAppointments.ResumeLayout(false);
             this.grpBoxAppointments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrCancel)).EndInit();

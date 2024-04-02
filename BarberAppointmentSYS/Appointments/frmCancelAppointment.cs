@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarberAppointmentSYS.Appointments;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace BarberAppointmentSYS
 {
     public partial class frmCancelAppointment : Form
     {
+        Appointment anAppointment = new Appointment();
         frmMenu parent;
         
         public frmCancelAppointment()
@@ -31,7 +33,9 @@ namespace BarberAppointmentSYS
                 MessageBox.Show("Barber must be selected ",
                         "Barber Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (cmbBoxBarber.SelectedIndex == 3)
+            int barberID = Utility.getSelectedBarberId(cmbBoxBarber);
+            Utility.loadBarberAppointments(cmbBoxAppointments,barberID , DateTime.Parse(String.Format("{0:dd-MMM-yy}", appDatePicker.Value)));
+            if (cmbBoxAppointments.Items == null)
             {
                 MessageBox.Show("No Appointments on that date ",
                         "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,6 +67,7 @@ namespace BarberAppointmentSYS
             }
             else
             {
+                anAppointment.cancelAppointment(cmbBoxAppointments);
                 MessageBox.Show("Appointment:\n" + cmbBoxAppointments.Text + "\nHas been cancelled successfully",
                     "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmbBoxBarber.SelectedIndex = -1;
@@ -73,6 +78,19 @@ namespace BarberAppointmentSYS
                 pctrCancel.Visible = false;
                 cmbBoxAppointments.SelectedIndex = -1;
             }
+        }
+
+        private void frmCancelAppointment_Load(object sender, EventArgs e)
+        {
+            Utility.loadBarbersData(cmbBoxBarber);
+            appDatePicker.MinDate = DateTime.Today;
+           
+
+        }
+
+        private void cmbBoxBarber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
