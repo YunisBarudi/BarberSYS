@@ -24,6 +24,10 @@ namespace BarberAppointmentSYS
         }
 
 
+       /*
+         
+            That was my Harcode for prototype in 1st semester 
+         
         private void btnListBarbers_Click(object sender, EventArgs e)
         {
             
@@ -116,11 +120,23 @@ namespace BarberAppointmentSYS
                 table.Controls.Add(new Label() { Text = rowData[i] }, i, table.RowCount - 1);
             }
         }
+        */
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
             parent.Visible = true;
+        }
+
+        private void btnListBarbers_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void frmListBarbers_Load(object sender, EventArgs e)
+        {
+            txtListBarbers.Enabled = false;
+            txtListBarbers.Visible = false;
         }
     }
 }

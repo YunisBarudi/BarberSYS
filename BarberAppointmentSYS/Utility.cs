@@ -67,35 +67,28 @@ namespace BarberAppointmentSYS
         {
             if (comboBox.SelectedItem == null)
             {
-                // If no item is selected, return -1
                 return -1;
             }
 
-            // Get the selected item from the combo box
             string selectedBarber = comboBox.SelectedItem.ToString();
 
 
-            // Find the index of the '-' character
             int separatorIndex = selectedBarber.IndexOf('-');
 
             if (separatorIndex == -1)
             {
-                // If the separator '-' is not found, return -1
                 return -1;
             }
 
-            // Extract the barber ID substring
             string barberIdString = selectedBarber.Substring(0, separatorIndex).Trim();
 
             int barberId;
             if (int.TryParse(barberIdString, out barberId))
             {
-                // Return the parsed barber ID
                 return barberId;
             }
             else
             {
-                // Return -1 if parsing fails
                 return -1;
             }
         }

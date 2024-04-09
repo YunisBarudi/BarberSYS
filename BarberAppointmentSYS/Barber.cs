@@ -1,9 +1,11 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using BarberAppointmentSYS.Appointments;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BarberAppointmentSYS
 {
@@ -180,6 +182,32 @@ namespace BarberAppointmentSYS
             //close DB
             conn.Close();
         }
+        public void listBarbers(RichTextBox listBarbers,string orderBy)
+        {
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+
+            String sqlQuery = "Select * FROM Barbers" +
+                "ORDER BY " +orderBy;
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            listBarbers.Clear();
+
+            while (reader.Read())
+            {
+                string forename = reader["Forename"].ToString();
+
+                
+                listBarbers.AppendText(forename + "\n");
+            }
+
+            // Close the reader after reading all rows
+            reader.Close();
+        }
+
+    
+        
         public void changeBarber()
         {
             //Open a db connection

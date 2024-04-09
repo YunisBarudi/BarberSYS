@@ -50,7 +50,7 @@
             this.imgAddService.Enabled = false;
             this.imgAddService.Image = global::BarberAppointmentSYS.Properties.Resources.backlogo;
             this.imgAddService.Location = new System.Drawing.Point(0, 0);
-            this.imgAddService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgAddService.Margin = new System.Windows.Forms.Padding(2);
             this.imgAddService.Name = "imgAddService";
             this.imgAddService.Size = new System.Drawing.Size(800, 450);
             this.imgAddService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -62,7 +62,7 @@
             this.cmbBoxSetServiceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxSetServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBoxSetServiceType.Location = new System.Drawing.Point(305, 36);
-            this.cmbBoxSetServiceType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBoxSetServiceType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBoxSetServiceType.Name = "cmbBoxSetServiceType";
             this.cmbBoxSetServiceType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbBoxSetServiceType.Size = new System.Drawing.Size(217, 34);
@@ -98,8 +98,8 @@
             this.txtServiceName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtServiceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServiceName.Location = new System.Drawing.Point(305, 108);
-            this.txtServiceName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtServiceName.MaxLength = 15;
+            this.txtServiceName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtServiceName.MaxLength = 10;
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(197, 32);
             this.txtServiceName.TabIndex = 5;
@@ -136,7 +136,7 @@
             this.txtRate.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRate.Location = new System.Drawing.Point(305, 181);
-            this.txtRate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRate.Margin = new System.Windows.Forms.Padding(2);
             this.txtRate.MaxLength = 5;
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(89, 32);
@@ -146,8 +146,8 @@
             // 
             this.txtDescriptionService.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescriptionService.Location = new System.Drawing.Point(305, 255);
-            this.txtDescriptionService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDescriptionService.MaxLength = 50;
+            this.txtDescriptionService.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescriptionService.MaxLength = 20;
             this.txtDescriptionService.Name = "txtDescriptionService";
             this.txtDescriptionService.Size = new System.Drawing.Size(269, 76);
             this.txtDescriptionService.TabIndex = 9;
@@ -159,7 +159,7 @@
             this.btnAddService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddService.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddService.Location = new System.Drawing.Point(305, 370);
-            this.btnAddService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddService.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(202, 54);
             this.btnAddService.TabIndex = 10;
@@ -171,7 +171,7 @@
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(44, 378);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(80, 43);
             this.btnBack.TabIndex = 11;
@@ -196,7 +196,7 @@
             this.Controls.Add(this.cmbBoxSetServiceType);
             this.Controls.Add(this.imgAddService);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddService";
             this.Text = "Add Service";
             this.Load += new System.EventHandler(this.frmAddService_Load);

@@ -34,7 +34,7 @@ namespace BarberAppointmentSYS
         {
             if (cmbBoxSetServiceType.SelectedIndex != -1)
             {
-                if (txtServiceName.Text.All(t => char.IsLetter(t) || t.Equals(' ')) && txtServiceName.Text.Length>=5)
+                if (txtServiceName.Text.All(t => char.IsLetter(t) || t.Equals(' ')) && txtServiceName.Text.Length>=4)
                 {
 
                     if (double.TryParse(txtRate.Text, out double rateValue) && rateValue >= 0)
