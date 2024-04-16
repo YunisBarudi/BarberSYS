@@ -18,7 +18,9 @@ namespace BarberAppointmentSYS.Appointments
         private DateTime appointmentDate;
         private string appointmentTime;
         private int service_id;
+        private double rate;
         private int barber_id;
+        
 
 
         public Appointment()
@@ -31,6 +33,7 @@ namespace BarberAppointmentSYS.Appointments
             this.appointmentDate = DateTime.Now;
             this.appointmentTime = "";
             this.service_id = 0;
+            this.rate = 0;
             this.barber_id = 0;
 
         }
@@ -45,6 +48,7 @@ namespace BarberAppointmentSYS.Appointments
             this.appointmentDate = appointmentDate;
             this.appointmentTime = appointmentTime;
             this.service_id = service_id;
+            this.rate = rate;
             this.barber_id = barber_id;
         }
         /////Getters
@@ -80,6 +84,10 @@ namespace BarberAppointmentSYS.Appointments
         public int getBarberId()
         {
             return this.barber_id;
+        }
+        public double getRate()
+        {
+            return this.rate;
         }
         ////Setters////
 
@@ -119,7 +127,10 @@ namespace BarberAppointmentSYS.Appointments
         {
             this.barber_id = barber_id;
         }
-
+        public void setRate(int Rate)
+        {
+            this.rate = Rate;
+        }
         ///////////////////////////////////////
 
         public static int getNextAppointment_ID()
@@ -165,6 +176,7 @@ namespace BarberAppointmentSYS.Appointments
                   "TO_DATE(:appointmentDate, 'DD-MON-YY'), '" +
                   this.appointmentTime + "', " +
                   this.service_id + ", " +
+                  this.rate + ", " +
                   this.barber_id + ")";
 
             conn.Open();
@@ -243,12 +255,8 @@ namespace BarberAppointmentSYS.Appointments
             {
                 using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
                 {
-                    string getAvailableTimeSlotsQuery = @"
-                SELECT at.apptime
-                FROM AppointmentTimes at
-                LEFT JOIN Appointments a ON at.apptime = a.apptime AND TRUNC(TO_DATE(a.appointmentdate, 'DD-MON-YY')) = TRUNC(TO_DATE(:selectedDate, 'DD-MON-YY')) AND a.barber_id = :selectedBarberId
-                WHERE a.appointment_id IS NULL
-                ORDER BY at.apptime";
+                    string getAvailableTimeSlotsQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT Apptime FROM Appointments WHERE Barber_Id = :selectedBarberId AND APPDATE = TO_DATE(:selectedDate, 'DD-MON-YY'))";
+               
 
                     conn.Open();
 

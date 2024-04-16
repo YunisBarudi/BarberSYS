@@ -43,8 +43,8 @@ namespace BarberAppointmentSYS
             }
             else
             {
-                anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
-
+                // anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
+                anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Convert.ToInt32(cmbBoxBarber.Text.Substring(0,2)), cmbBoxTime);
 
                 lblSelectTime.Visible = true;
                 cmbBoxTime.Visible = true;
