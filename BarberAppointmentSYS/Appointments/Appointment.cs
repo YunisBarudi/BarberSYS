@@ -38,7 +38,7 @@ namespace BarberAppointmentSYS.Appointments
 
         }
         public Appointment(int appointment_id, string forename, string surname, string phone,
-            string email, DateTime appointmentDate, string appointmentTime, int service_id, int barber_id)
+            string email, DateTime appointmentDate, string appointmentTime, int service_id, double rate, int barber_id)
         {
             this.appointment_id = appointment_id;
             this.forename = forename;
@@ -249,23 +249,23 @@ namespace BarberAppointmentSYS.Appointments
             }
 
         }
-        public void checkAvailableTimeSlots(string selectedDate, int selectedBarberId, ComboBox cmbTime)
+        public void checkAvailableTimeSlots(DateTime appointmentDate, int selectedBarberId, ComboBox cmbTime)
         {
             try
             {
                 using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
                 {
-                    string getAvailableTimeSlotsQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT Apptime FROM Appointments WHERE Barber_Id = :selectedBarberId AND APPDATE = TO_DATE(:selectedDate, 'DD-MON-YY'))";
-               
+                    string formattedDate = appointmentDate.ToString("dd-MMM-yy");
+                    string stringQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT DISTINCT Apptime FROM Appointments WHERE Barber_Id = :selectedBarberId AND AppDATE = TO_DATE(':appointmentDate', 'DD-MM-YY'))";
 
                     conn.Open();
 
-                    using (OracleCommand getAvailableTimeSlotsCommand = new OracleCommand(getAvailableTimeSlotsQuery, conn))
+                    using (OracleCommand cmd = new OracleCommand(stringQuery, conn))
                     {
-                        getAvailableTimeSlotsCommand.Parameters.Add(":selectedDate", OracleDbType.Varchar2).Value = selectedDate;
-                        getAvailableTimeSlotsCommand.Parameters.Add(":selectedBarberId", OracleDbType.Int32).Value = selectedBarberId;
+                        cmd.Parameters.Add(":appointmentDate", OracleDbType.Varchar2).Value = formattedDate;
+                        cmd.Parameters.Add(":selectedBarberId", OracleDbType.Int32).Value = selectedBarberId;
 
-                        using (OracleDataReader timeSlotsReader = getAvailableTimeSlotsCommand.ExecuteReader())
+                        using (OracleDataReader timeSlotsReader = cmd.ExecuteReader())
                         {
                             cmbTime.Items.Clear();
 
@@ -277,11 +277,17 @@ namespace BarberAppointmentSYS.Appointments
                     }
                 }
             }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Oracle Error: " + ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+
 
 
 

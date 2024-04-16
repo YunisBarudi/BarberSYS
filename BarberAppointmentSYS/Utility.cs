@@ -46,6 +46,44 @@ namespace BarberAppointmentSYS
             }
             conn.Close();
         }
+        public static double loadServicesRate(int service_id )
+        {
+            //Define SQL query to retrieve the last Id assigned
+            String strSQL = "SELECT Rate FROM Services WHERE Service_ID = :service_id";
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
+                {
+                    conn.Open();
+
+                    using (OracleCommand cmd = new OracleCommand(strSQL, conn))
+                    {
+                        // Create OracleParameter and add it to the Parameters collection
+                        OracleParameter parameter = new OracleParameter(":service", OracleDbType.Varchar2);
+                        parameter.Value = service_id;
+                        cmd.Parameters.Add(parameter);
+
+                        // Execute the command using ExecuteScalar to get single value
+                        object result = cmd.ExecuteScalar();
+
+                        conn.Close() ;
+
+                        if (result != null)
+                        {
+                            
+                            return Convert.ToDouble(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return -1;
+        }
         public static void loadBarbersData(ComboBox cboName)
         {
             //Define SQL query to retrieve the last Id assigned
@@ -141,7 +179,7 @@ namespace BarberAppointmentSYS
 
             string appointmentDateString = appointmentDate.ToString("dd-MMM-yy");
             //Define SQL query to retrieve the last Id assigned
-            String strSQL = "SELECT Appointment_ID,Forename,Surname,AppTime,Barber_Id FROM Appointments WHERE Barber_ID = :barber_id AND AppointmentDate = :appointmentDateString";
+            String strSQL = "SELECT Appointment_ID,Forename,Surname,AppTime,Barber_Id,AppDate FROM Appointments WHERE Barber_ID = :barber_id AND AppDate = :appointmentDateString";
             //Connect to the database
             OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
             conn.Open();

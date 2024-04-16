@@ -43,8 +43,8 @@ namespace BarberAppointmentSYS
             }
             else
             {
-                // anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
-                anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Convert.ToInt32(cmbBoxBarber.Text.Substring(0,2)), cmbBoxTime);
+                anAppointment.checkAvailableTimeSlots(appDatePicker.Value, Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
+                //anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Convert.ToInt32(cmbBoxBarber.Text.Substring(0,2)), cmbBoxTime);
 
                 lblSelectTime.Visible = true;
                 cmbBoxTime.Visible = true;
@@ -74,7 +74,8 @@ namespace BarberAppointmentSYS
                             {
                                 Appointment anAppointment = new Appointment(Convert.ToInt32(Appointment.getNextAppointment_ID()),txtBoxForename.Text,txtBoxSurname.Text,
                                    txtBoxPhone.Text,txtBoxEmail.Text,
-                                 DateTime.Parse(String.Format("{0:dd-MMM-yy}", appDatePicker.Value)), cmbBoxTime.Text,Utility.getSelectedBarberId(cmbBoxService),Utility.getSelectedBarberId(cmbBoxBarber));
+                                 DateTime.Parse(String.Format("{0:dd-MMM-yy}", appDatePicker.Value)), cmbBoxTime.Text,Utility.getSelectedBarberId(cmbBoxService),
+                                 Utility.loadServicesRate(Utility.getSelectedBarberId(cmbBoxService)), Utility.getSelectedBarberId(cmbBoxBarber));
                                  anAppointment.addAppointment();
 
 
@@ -90,6 +91,7 @@ namespace BarberAppointmentSYS
                                 txtBoxForename.Text = string.Empty;
                                 txtBoxPhone.Text = string.Empty;
                                 txtBoxSurname.Text = string.Empty;
+
                                 cmbBoxService.SelectedIndex = -1;
                                 cmbBoxBarber.SelectedIndex = -1;
                                 cmbBoxTime.SelectedIndex = -1;
