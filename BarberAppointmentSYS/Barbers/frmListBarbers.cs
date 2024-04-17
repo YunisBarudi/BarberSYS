@@ -130,7 +130,19 @@ namespace BarberAppointmentSYS
 
         private void btnListBarbers_Click(object sender, EventArgs e)
         {
-            
+            RadioButton selectedRadioButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            if (selectedRadioButton != null)
+            {
+                string selectedString = selectedRadioButton.Text;
+               Barber aBarber = new Barber();
+                aBarber.listBarbers(txtListBarbers, selectedString);
+                txtListBarbers.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Please select an option!");
+            }
+
         }
 
         private void frmListBarbers_Load(object sender, EventArgs e)

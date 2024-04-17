@@ -256,16 +256,18 @@ namespace BarberAppointmentSYS.Appointments
                 using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
                 {
                     string formattedDate = appointmentDate.ToString("dd-MMM-yy");
-                    string stringQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT DISTINCT Apptime FROM Appointments WHERE Barber_Id = :selectedBarberId AND AppDATE = TO_DATE(':appointmentDate', 'DD-MM-YY'))";
+                    string stringQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT DISTINCT Apptime FROM Appointments WHERE Barber_Id = :selectedBarberId AND AppDATE = TO_DATE(:appointmentDate, 'DD-MON-YY'))";
 
                     conn.Open();
 
-                    using (OracleCommand cmd = new OracleCommand(stringQuery, conn))
+                    using (OracleCommand cmd1 = new OracleCommand(stringQuery, conn))
                     {
-                        cmd.Parameters.Add(":appointmentDate", OracleDbType.Varchar2).Value = formattedDate;
-                        cmd.Parameters.Add(":selectedBarberId", OracleDbType.Int32).Value = selectedBarberId;
+                        cmd1.Parameters.Add(":appointmentDate", OracleDbType.Varchar2).Value = formattedDate;
+                        cmd1.Parameters.Add(":selectedBarberId", OracleDbType.Int32).Value = selectedBarberId;
 
-                        using (OracleDataReader timeSlotsReader = cmd.ExecuteReader())
+                        Console.WriteLine(stringQuery);
+
+                        using (OracleDataReader timeSlotsReader = cmd1.ExecuteReader())
                         {
                             cmbTime.Items.Clear();
 
@@ -279,10 +281,12 @@ namespace BarberAppointmentSYS.Appointments
             }
             catch (OracleException ex)
             {
+               
                 MessageBox.Show("Oracle Error: " + ex.Message);
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Error: " + ex.Message);
             }
         }

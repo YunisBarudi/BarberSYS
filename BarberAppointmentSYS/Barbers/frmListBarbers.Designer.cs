@@ -44,7 +44,7 @@
             this.btnListBarbers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListBarbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListBarbers.Location = new System.Drawing.Point(328, 386);
-            this.btnListBarbers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnListBarbers.Margin = new System.Windows.Forms.Padding(2);
             this.btnListBarbers.Name = "btnListBarbers";
             this.btnListBarbers.Size = new System.Drawing.Size(202, 54);
             this.btnListBarbers.TabIndex = 22;
@@ -56,7 +56,7 @@
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(32, 394);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(80, 43);
             this.btnBack.TabIndex = 28;
@@ -157,7 +157,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnListBarbers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmListBarbers";
             this.Text = "List Barbers";
             this.Load += new System.EventHandler(this.frmListBarbers_Load);
