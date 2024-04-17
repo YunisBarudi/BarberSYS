@@ -136,9 +136,10 @@
             // 
             // txtListBarbers
             // 
-            this.txtListBarbers.Location = new System.Drawing.Point(72, 39);
+            this.txtListBarbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtListBarbers.Location = new System.Drawing.Point(32, 39);
             this.txtListBarbers.Name = "txtListBarbers";
-            this.txtListBarbers.Size = new System.Drawing.Size(633, 249);
+            this.txtListBarbers.Size = new System.Drawing.Size(737, 268);
             this.txtListBarbers.TabIndex = 34;
             this.txtListBarbers.Text = "";
             // 
