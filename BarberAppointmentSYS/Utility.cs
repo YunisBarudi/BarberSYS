@@ -12,6 +12,20 @@ namespace BarberAppointmentSYS
 {
     internal class Utility
     {
+
+        public static void loadAppointmentsYear(ComboBox cboName){
+            String strSql = "SELECT DISTINCT EXTRACT(YEAR FROM AppDate) FROM Appointments";
+
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+            conn.Open();
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+            OracleDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cboName.Items.Add(dr.GetString(0));
+            }
+            conn.Close();
+            }
         public static void loadRatesData(ComboBox cboName)
         {
             //Define SQL query to retrieve the last Id assigned

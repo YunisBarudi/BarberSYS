@@ -186,23 +186,24 @@ namespace BarberAppointmentSYS
         {
             OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
 
-            String sqlQuery = "Select * FROM Barbers" +
-                "ORDER BY " +orderBy;
+            String sqlQuery = "SELECT * FROM Barbers " +
+                  "ORDER BY " + orderBy;
+
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
             OracleDataReader reader = cmd.ExecuteReader();
+
 
             listBarbers.Clear();
 
             while (reader.Read())
             {
-                string forename = reader["Forename"].ToString();
-
-                
-                listBarbers.AppendText(forename + "\n");
+                string barberInfo = string.Format("Name: {0} {1}, Postcode: {2}, Phone: {3}, Email: {4}, Status: {5}",
+                                         reader["FORENAME"], reader["SURNAME"],reader["POSTCODE"],
+                                         reader["PHONE"], reader["EMAIL"], reader["STATUS"]);
+                listBarbers.AppendText(barberInfo + "\n\n");
             }
 
-            // Close the reader after reading all rows
             reader.Close();
         }
 
@@ -246,5 +247,6 @@ namespace BarberAppointmentSYS
 
             conn.Close();
         }
+        
     }
 }

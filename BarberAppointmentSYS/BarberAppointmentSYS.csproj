@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.cs" />
     <Compile Include="Appointments\Appointment.cs" />
     <Compile Include="Barber.cs" />
     <Compile Include="Barbers\frmAddBarber.cs">

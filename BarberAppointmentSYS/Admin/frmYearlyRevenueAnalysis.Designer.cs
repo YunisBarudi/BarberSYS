@@ -43,12 +43,6 @@
             // 
             this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbYear.Items.AddRange(new object[] {
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023"});
             this.cmbYear.Location = new System.Drawing.Point(324, 41);
             this.cmbYear.Margin = new System.Windows.Forms.Padding(2);
             this.cmbYear.Name = "cmbYear";
@@ -87,13 +81,13 @@
             this.chtData.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chtData.Legends.Add(legend1);
-            this.chtData.Location = new System.Drawing.Point(140, 99);
+            this.chtData.Location = new System.Drawing.Point(123, 100);
             this.chtData.Name = "chtData";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chtData.Series.Add(series1);
-            this.chtData.Size = new System.Drawing.Size(608, 317);
+            this.chtData.Size = new System.Drawing.Size(648, 317);
             this.chtData.TabIndex = 41;
             this.chtData.Text = "chtData";
             // 
