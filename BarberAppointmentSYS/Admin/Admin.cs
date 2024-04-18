@@ -16,7 +16,11 @@ namespace BarberAppointmentSYS
         public Admin() { }
         public void frmYearlyRevenueAnalysis_Load(int Year, Chart chtData)
         {
-            String strSQL = "SELECT SUM(Rate) AS TotalRate, EXTRACT(MONTH FROM AppDate) AS MonthNumber " +
+
+            String[] Months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+            decimal[] Amounts = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            String strSQL = "SELECT SUM(Rate), EXTRACT(MONTH FROM AppDate) AS MONTH " +
                             "FROM Appointments " +
                             "WHERE EXTRACT(YEAR FROM AppDate) = :Year " +
                             "GROUP BY EXTRACT(MONTH FROM AppDate)";
@@ -30,34 +34,15 @@ namespace BarberAppointmentSYS
             OracleDataAdapter da = new OracleDataAdapter(cmd);
             da.Fill(dt);
             myConn.Close();
-            if (dt.Rows.Count == 0)
+
+           
+
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                chtData.Visible = false;
-                MessageBox.Show("No data found for the selected year.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+               
+                Amounts[i] = Convert.ToDecimal(dt.Rows[i][0]);
             }
-
-            Dictionary<int, string> monthNames = new Dictionary<int, string>()
-    {
-        {1, "JAN"}, {2, "FEB"}, {3, "MAR"}, {4, "APR"}, {5, "MAY"}, {6, "JUN"},
-        {7, "JUL"}, {8, "AUG"}, {9, "SEP"}, {10, "OCT"}, {11, "NOV"}, {12, "DEC"}
-    };
-
-            List<string> MonthsList = new List<string>();
-            List<decimal> AmountsList = new List<decimal>();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                int monthNumber = Convert.ToInt32(row["MonthNumber"]);
-                string monthName = monthNames.ContainsKey(monthNumber) ? monthNames[monthNumber] : "Unknown";
-                MonthsList.Add(monthName);
-                AmountsList.Add(Convert.ToDecimal(row["TotalRate"]));
-            }
-
-            // Convert lists to arrays
-            string[] Months = MonthsList.ToArray();
-            decimal[] Amounts = AmountsList.ToArray();
-
+            chtData.ChartAreas[0].AxisX.Interval = 1;
             chtData.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
             chtData.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
             chtData.Series[0].LegendText = "Income in €";
@@ -67,6 +52,8 @@ namespace BarberAppointmentSYS
             chtData.Titles.Add("Yearly Revenue");
             chtData.Visible = true;
         }
+
+       
 
 
     }

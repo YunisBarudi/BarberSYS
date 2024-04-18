@@ -256,13 +256,14 @@ namespace BarberAppointmentSYS.Appointments
                 using (OracleConnection conn = new OracleConnection(DBConnectcs.oraDB))
                 {
                     string formattedDate = appointmentDate.ToString("dd-MMM-yy");
-                    string stringQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT DISTINCT Apptime FROM Appointments WHERE Barber_Id = :selectedBarberId AND AppDATE = TO_DATE(:appointmentDate, 'DD-MON-YY'))";
+                    string stringQuery = "SELECT apptime FROM AppointmentTimes WHERE apptime NOT IN (SELECT DISTINCT Apptime FROM Appointments WHERE (Barber_Id = :selectedBarberId) AND " +
+                        "(AppDATE = TO_DATE('" + formattedDate + "', 'dd-MON-yy'))) ORDER BY apptime";
 
                     conn.Open();
 
                     using (OracleCommand cmd1 = new OracleCommand(stringQuery, conn))
                     {
-                        cmd1.Parameters.Add(":appointmentDate", OracleDbType.Varchar2).Value = formattedDate;
+                       // cmd1.Parameters.Add(":appointmentDate", OracleDbType.Varchar2).Value = formattedDate;
                         cmd1.Parameters.Add(":selectedBarberId", OracleDbType.Int32).Value = selectedBarberId;
 
                         Console.WriteLine(stringQuery);

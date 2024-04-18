@@ -44,7 +44,7 @@ namespace BarberAppointmentSYS
             else
             {
                 anAppointment.checkAvailableTimeSlots(appDatePicker.Value, Utility.getSelectedBarberId(cmbBoxBarber), cmbBoxTime);
-                //anAppointment.checkAvailableTimeSlots(appDatePicker.Value.ToString("dd-MMM-yy"), Convert.ToInt32(cmbBoxBarber.Text.Substring(0,2)), cmbBoxTime);
+               
 
                 lblSelectTime.Visible = true;
                 cmbBoxTime.Visible = true;
@@ -101,6 +101,7 @@ namespace BarberAppointmentSYS
                                 cmbBoxTime.Visible = false;
                                 cmbBoxBarber.Enabled = true;
                                 appDatePicker.Enabled = true;
+                                cmbBoxTime.Enabled = true;
                                 DialogResult dialogResult = MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                 if (dialogResult == DialogResult.Yes)
                                 {
