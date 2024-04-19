@@ -27,7 +27,11 @@ namespace BarberAppointmentSYS
         {
             if (cmbYear.SelectedIndex != -1)
             {
-                grpBoxStatictics.Visible = true;
+
+                txtBarberStat.Visible = true;
+                Admin anAdmin = new Admin();
+                anAdmin.BarberRevenue(int.Parse(cmbYear.Text), txtBarberStat);
+
             }
         }
 
@@ -39,9 +43,15 @@ namespace BarberAppointmentSYS
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            grpBoxStatictics.Visible = false;
             cmbYear.SelectedIndex = -1;
             cmbYear.Enabled = true;
+            txtBarberStat.Visible = false;
+        }
+
+        private void frmYearlyBarberStatistics_Load(object sender, EventArgs e)
+        {
+            txtBarberStat.Visible = false;
+            Utility.loadAppointmentsYear(cmbYear);
         }
     }
 }

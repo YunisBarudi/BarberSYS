@@ -85,7 +85,7 @@
   <ItemGroup>
     <Compile Include="Admin\Admin.cs" />
     <Compile Include="Appointments\Appointment.cs" />
-    <Compile Include="Barber.cs" />
+    <Compile Include="Barbers\Barber.cs" />
     <Compile Include="Barbers\frmAddBarber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +93,8 @@
       <DependentUpon>frmAddBarber.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnectcs.cs" />
-    <Compile Include="Rate.cs" />
-    <Compile Include="Service.cs" />
+    <Compile Include="Services\Rate.cs" />
+    <Compile Include="Services\Service.cs" />
     <Compile Include="Services\frmAddService.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -37,7 +37,7 @@ namespace BarberAppointmentSYS
                 if (txtServiceName.Text.All(t => char.IsLetter(t) || t.Equals(' ')) && txtServiceName.Text.Length>=4)
                 {
 
-                    if (double.TryParse(txtRate.Text, out double rateValue) && rateValue >= 0)
+                    if (double.TryParse(txtRate.Text, out double rateValue) && rateValue >= 0 && rateValue <=100)
                     { 
                         if (txtDescriptionService.Text.Length <= 50 && txtDescriptionService.Text.Length >= 5)
                         {
@@ -72,7 +72,7 @@ namespace BarberAppointmentSYS
                     }
                     else
                     {
-                        MessageBox.Show(" Rate must be double and greater than 0 ",
+                        MessageBox.Show(" Rate must be double, greater than 0 and less than 100 ",
                         "Invalid Rate", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         cmbBoxSetServiceType.Text = string.Empty;
                         txtServiceName.Text = string.Empty;

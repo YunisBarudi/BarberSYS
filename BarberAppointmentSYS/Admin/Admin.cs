@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace BarberAppointmentSYS
             String strSQL = "SELECT SUM(Rate), EXTRACT(MONTH FROM AppDate) AS MONTH " +
                             "FROM Appointments " +
                             "WHERE EXTRACT(YEAR FROM AppDate) = :Year " +
+                            "AND AppDate < SYSDATE " +
                             "GROUP BY EXTRACT(MONTH FROM AppDate)";
 
             DataTable dt = new DataTable();
@@ -52,21 +54,52 @@ namespace BarberAppointmentSYS
             chtData.Titles.Add("Yearly Revenue");
             chtData.Visible = true;
         }
-        public void BarberRevenue(int Year)
+        public void BarberRevenue(int Year, RichTextBox barberStat)
         {
+            OracleConnection conn = new OracleConnection(DBConnectcs.oraDB);
+
             String strSql = "SELECT " +
                 "a.barber_id, b.forename, b.surname,  SUM(a.RATE) AS total_rate " +
                 "FROM Appointments a " +
                 "JOIN barbers b ON a.barber_id = b.barber_id " +
                 "WHERE EXTRACT(YEAR FROM a.appdate) = " + Year +
-                " GROUP BY a.barber_id, b.forename, b.surname " +
+                " AND a.appdate < SYSDATE GROUP BY a.barber_id, b.forename, b.surname " +
                 "ORDER BY total_rate DESC";
-            OracleConnection myConn = new OracleConnection(DBConnectcs.oraDB);
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+            conn.Open();
 
-            OracleCommand cmd = new OracleCommand(strSql, myConn);
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            barberStat.Clear();
+
+            bool firstItem = true;
+
+            while (reader.Read())
+            {
+                string forename = reader["forename"].ToString();
+                string surname = reader["surname"].ToString();
+                string totalRate = reader["total_rate"].ToString();
+                string barberInfo = $"{forename} {surname}: Total Revenue - {totalRate}";
+
+                if (firstItem)
+                {
+                    barberStat.SelectionColor = Color.Green;
+                    firstItem = false;
+                }
+                else
+                {
+                    barberStat.SelectionColor = Color.Black;
+                }
+
+                barberStat.AppendText(barberInfo + "\n\n");
+            }
+
+            reader.Close();
+            conn.Close();
         }
 
-       
+
+
 
 
     }

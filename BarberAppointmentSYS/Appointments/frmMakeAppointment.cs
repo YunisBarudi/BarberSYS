@@ -102,6 +102,7 @@ namespace BarberAppointmentSYS
                                 cmbBoxBarber.Enabled = true;
                                 appDatePicker.Enabled = true;
                                 cmbBoxTime.Enabled = true;
+                                cmbBoxService.Items.Clear();
                                 DialogResult dialogResult = MessageBox.Show("Do you wanna back to the main menu?", "Main menu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                 if (dialogResult == DialogResult.Yes)
                                 {
