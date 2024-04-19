@@ -46,9 +46,10 @@
             this.lblServiceType.AutoSize = true;
             this.lblServiceType.BackColor = System.Drawing.Color.Transparent;
             this.lblServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServiceType.Location = new System.Drawing.Point(12, 101);
+            this.lblServiceType.Location = new System.Drawing.Point(9, 82);
+            this.lblServiceType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblServiceType.Name = "lblServiceType";
-            this.lblServiceType.Size = new System.Drawing.Size(319, 42);
+            this.lblServiceType.Size = new System.Drawing.Size(256, 36);
             this.lblServiceType.TabIndex = 1;
             this.lblServiceType.Text = "Set Service Type";
             this.lblServiceType.Click += new System.EventHandler(this.label1_Click);
@@ -57,10 +58,11 @@
             // 
             this.txtServiceType.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServiceType.Location = new System.Drawing.Point(408, 101);
+            this.txtServiceType.Location = new System.Drawing.Point(306, 82);
+            this.txtServiceType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtServiceType.MaxLength = 2;
             this.txtServiceType.Name = "txtServiceType";
-            this.txtServiceType.Size = new System.Drawing.Size(87, 49);
+            this.txtServiceType.Size = new System.Drawing.Size(66, 41);
             this.txtServiceType.TabIndex = 2;
             this.txtServiceType.TextChanged += new System.EventHandler(this.txtServiceType_TextChanged);
             // 
@@ -75,19 +77,21 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(12, 223);
+            this.lblDescription.Location = new System.Drawing.Point(9, 181);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(216, 42);
+            this.lblDescription.Size = new System.Drawing.Size(176, 36);
             this.lblDescription.TabIndex = 4;
             this.lblDescription.Text = "Description";
             // 
             // txtDescriptionType
             // 
             this.txtDescriptionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriptionType.Location = new System.Drawing.Point(408, 223);
-            this.txtDescriptionType.MaxLength = 50;
+            this.txtDescriptionType.Location = new System.Drawing.Point(306, 181);
+            this.txtDescriptionType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescriptionType.MaxLength = 20;
             this.txtDescriptionType.Name = "txtDescriptionType";
-            this.txtDescriptionType.Size = new System.Drawing.Size(473, 145);
+            this.txtDescriptionType.Size = new System.Drawing.Size(356, 119);
             this.txtDescriptionType.TabIndex = 5;
             this.txtDescriptionType.Text = "";
             this.txtDescriptionType.TextChanged += new System.EventHandler(this.txtDescriptionType_TextChanged);
@@ -96,9 +100,10 @@
             // 
             this.btnSetServiceType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSetServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetServiceType.Location = new System.Drawing.Point(408, 442);
+            this.btnSetServiceType.Location = new System.Drawing.Point(306, 359);
+            this.btnSetServiceType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSetServiceType.Name = "btnSetServiceType";
-            this.btnSetServiceType.Size = new System.Drawing.Size(280, 70);
+            this.btnSetServiceType.Size = new System.Drawing.Size(210, 57);
             this.btnSetServiceType.TabIndex = 6;
             this.btnSetServiceType.Text = "Set Service Type";
             this.btnSetServiceType.UseVisualStyleBackColor = true;
@@ -110,8 +115,9 @@
             this.imgSetType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgSetType.Image = global::BarberAppointmentSYS.Properties.Resources.backlogo;
             this.imgSetType.Location = new System.Drawing.Point(0, 0);
+            this.imgSetType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgSetType.Name = "imgSetType";
-            this.imgSetType.Size = new System.Drawing.Size(1067, 554);
+            this.imgSetType.Size = new System.Drawing.Size(800, 450);
             this.imgSetType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgSetType.TabIndex = 0;
             this.imgSetType.TabStop = false;
@@ -119,9 +125,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(19, 457);
+            this.button1.Location = new System.Drawing.Point(14, 371);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 53);
+            this.button1.Size = new System.Drawing.Size(80, 43);
             this.button1.TabIndex = 7;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -129,9 +136,9 @@
             // 
             // frmSetServiceType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSetServiceType);
             this.Controls.Add(this.txtDescriptionType);
@@ -139,6 +146,7 @@
             this.Controls.Add(this.txtServiceType);
             this.Controls.Add(this.lblServiceType);
             this.Controls.Add(this.imgSetType);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmSetServiceType";
             this.Text = "Set Service Type";
             ((System.ComponentModel.ISupportInitialize)(this.imgSetType)).EndInit();

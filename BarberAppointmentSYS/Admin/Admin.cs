@@ -52,6 +52,16 @@ namespace BarberAppointmentSYS
             chtData.Titles.Add("Yearly Revenue");
             chtData.Visible = true;
         }
+        public void BarberRevenue(int Year)
+        {
+            String strSql = "SELECT " +
+                "a.barber_id, b.forename, b.surname,  SUM(a.RATE) AS total_rate " +
+                "FROM Appointments a " +
+                "JOIN barbers b ON a.barber_id = b.barber_id " +
+                "WHERE EXTRACT(YEAR FROM a.appdate) = " + Year +
+                " GROUP BY a.barber_id, b.forename, b.surname " +
+                "ORDER BY total_rate DESC";
+        }
 
        
 
