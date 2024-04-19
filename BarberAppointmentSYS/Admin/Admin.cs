@@ -61,6 +61,9 @@ namespace BarberAppointmentSYS
                 "WHERE EXTRACT(YEAR FROM a.appdate) = " + Year +
                 " GROUP BY a.barber_id, b.forename, b.surname " +
                 "ORDER BY total_rate DESC";
+            OracleConnection myConn = new OracleConnection(DBConnectcs.oraDB);
+
+            OracleCommand cmd = new OracleCommand(strSql, myConn);
         }
 
        
