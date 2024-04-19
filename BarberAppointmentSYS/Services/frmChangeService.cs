@@ -66,7 +66,7 @@ namespace BarberAppointmentSYS
                 if (txtServiceName.Text.All(c => char.IsLetter(c) || c == ' ') && txtServiceName.Text.Length >= 5)
                 {
 
-                    if (double.TryParse(txtRate.Text, out double rateValue) && rateValue >= 0)
+                    if (double.TryParse(txtRate.Text, out double rateValue) && rateValue >= 0 && rateValue <=100)
                     {
                         if (txtDescriptionService.Text.Length <= 60 && txtDescriptionService.Text.Length >= 5)
                         {
